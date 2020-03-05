@@ -1,0 +1,3 @@
+#ignore compiletime files and dirs
+*/bin/*
+*/obj/*
