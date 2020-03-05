@@ -6,7 +6,7 @@ namespace ML.Lib
 {
     class Shuffler
     {
-        static void Shuffle<T>(T[] input)
+        public static void Shuffle<T>(T[] input)
         {
             Random rand = new Random();
             for (int i = 0; i < input.Length; i++)
