@@ -2,7 +2,7 @@
 
 namespace ML.Lib
 {
-    class Normalizator
+    public class Normalizator
     {
         static double Max(double[] input)
         {

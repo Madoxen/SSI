@@ -1,3 +1,6 @@
 #ignore compiletime files and dirs
 */bin/*
 */obj/*
+
+.vscode
+.vs

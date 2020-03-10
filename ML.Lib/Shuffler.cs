@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ML.Lib
 {
-    class Shuffler
+    public class Shuffler
     {
         public static void Shuffle<T>(T[] input)
         {
