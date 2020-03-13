@@ -1,0 +1,3 @@
+jeans,0.5
+modern,0.7
+na zamek,0.2

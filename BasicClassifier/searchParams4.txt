@@ -1,0 +1,4 @@
+mrożone,1.0
+zielone,1.0
+słodkie,1.0
+liściaste,1.0

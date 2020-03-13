@@ -1,0 +1,5 @@
+świeże,mrożone,ostre,słodkie,zielone,czerwone,lokalne,tropikalne,liściaste,bulwowe
+papryka 1 0 1 0 1 1 0 1 0 0
+ziemniaki 0 0 0 0 0 0 1 0 0 1
+cebula 1 0 0 1 1 0 1 0 0 1
+marchewka 0 1 0 1 0 1 1 0 0 1

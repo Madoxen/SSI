@@ -1,0 +1,4 @@
+świeże,1.0
+zielone,1.0
+czerwone,1.0
+słodkie,1.0

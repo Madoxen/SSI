@@ -1,0 +1,5 @@
+drogie,tanie,jeans,dresowe,klasyczne,modern,fit,granatowe,czarne,na zamek,na guziki
+jeansy_zwykłe 0 1 1 0 1 0 0 1 0 1 0
+jeansy_niezwykłe 1 0 1 0 1 0 0 1 0 0 1
+dresy 0 1 0 1 0 0 1 0 1 0 0
+jakies_inne_spodnie 0 0 0 0 1 1 0 0 1 1 0

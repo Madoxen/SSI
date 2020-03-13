@@ -1,0 +1,3 @@
+świeże,1.0
+ostre,1.0
+czerwone,1.0

@@ -1,0 +1,4 @@
+jeans,1.0
+klasyczne,1.0
+granatowe,1.0
+na guziki,1.0
