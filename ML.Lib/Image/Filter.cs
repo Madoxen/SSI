@@ -16,10 +16,12 @@ namespace ML.Lib.Image
 
         public Filter()
         {
-            filterData = new double[3][];
-            filterData[0] = new double[3] { -1, -1, -1 };
-            filterData[1] = new double[3] { -1, 8, -1 };
-            filterData[2] = new double[3] { -1, -1, -1 };
+        }
+
+
+        public Filter(double[][] FilterData)
+        {
+            filterData = FilterData;
         }
 
 
@@ -43,10 +45,10 @@ namespace ML.Lib.Image
                                 continue;
 
                             Color filterPixel = input.GetPixel(k + i, g + j);
-                            maskSum += filterData[k + 1][g + 1];
-                            R += filterPixel.R * filterData[k + 1][g + 1];
-                            B += filterPixel.B * filterData[k + 1][g + 1];
-                            G += filterPixel.G * filterData[k + 1][g + 1];
+                            maskSum += filterData[k + (filterData.Length / 2)][g + (filterData.Length / 2)];
+                            R += filterPixel.R * filterData[k + (filterData.Length / 2)][g + (filterData.Length / 2)];
+                            B += filterPixel.B * filterData[k + (filterData.Length / 2)][g + (filterData.Length / 2)];
+                            G += filterPixel.G * filterData[k + (filterData.Length / 2)][g + (filterData.Length / 2)];
                         }
                     }
 
@@ -84,15 +86,7 @@ namespace ML.Lib.Image
                 }
             }
 
-            map.Save("ree.png");
             return map;
         }
-
-
-
-
-
-
-
     }
 }
