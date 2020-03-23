@@ -24,8 +24,9 @@ namespace ML.Lib.Tests
             GaussianFilter filter = new GaussianFilter(Math.Sqrt(2), 5, 5);
 
             Bitmap b = new Bitmap("Resources/test_image1.jpg");
-            filter.UseFilter(b);
+          //  filter.UseFilter(b);
 
         }
+
     }
 }
