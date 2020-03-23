@@ -10,14 +10,14 @@ namespace ML.Lib.Image
     {
 
         private static readonly int octaves = 4;
-        private static readonly int blurLevels = 5; 
+        private static readonly int blurLevels = 5;
 
         public static Bitmap Perform(Bitmap input)
         {
             List<PointInt2D> keypoints = new List<PointInt2D>();
             //Convert input to grayscale
             Bitmap gray = BitmapUtils.ConvertToGrayscale(input);
-            
+
             //Build scale pyramid
             List<List<Bitmap>> scales = BuildGaussianPyramid(gray, octaves, blurLevels);
 
@@ -42,7 +42,7 @@ namespace ML.Lib.Image
                 //shrink to half a size
                 octaves.Add(new List<Bitmap>());
                 octaves[i].Add(current); //Add current, not blurred bitmap;
-                for(int j = 0; j < numberOfBlurLevels; j++)
+                for (int j = 0; j < numberOfBlurLevels - 1; j++)
                 {
                     //blur bitmap
                     current = filter.UseFilter(current);
@@ -56,11 +56,27 @@ namespace ML.Lib.Image
         }
 
 
-
-        private static List<Point2D> FindKeypoints()
+        public static List<List<Bitmap>> CreateDoGs(List<List<Bitmap>> octaves)
         {
 
-return null;
+            List<List<Bitmap>> result = new List<List<Bitmap>>();
+            for (int i = 0; i < octaves.Count; i++)
+            {
+                result.Add(new List<Bitmap>());
+                for (int j = 0; j < octaves[i].Count - 1; j++)
+                {
+                    result[i].Add(BitmapUtils.Subtract(octaves[i][j], octaves[i][j + 1]));
+                }
+            }
+            return result;
+        }
+
+
+
+
+        private static List<PointInt2D> FindKeypoints(List<List<Bitmap>> DoGs)
+        {
+            
         }
 
 
