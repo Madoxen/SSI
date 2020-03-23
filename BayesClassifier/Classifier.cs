@@ -35,7 +35,6 @@ namespace BayesClassifier
                         _possibleValues[i].Add(o.Properties[i]);
                 }
             }
-
         }
 
 
@@ -58,7 +57,7 @@ namespace BayesClassifier
                 for (int j = 0; j < input.Properties.Count; j++) //Chooses property COLUMN in given class
                 {
                     //add all cases in class[i] that have property[j]
-                    probabilities[i][j] = _classes.ElementAt(i).Value.FindAll(x => x.Properties.Exists(y => y == input.Properties[j])).Count;
+                    probabilities[i][j] = _classes.ElementAt(i).Value.FindAll(x => x.Properties.Exists(y => y == input.Properties[j])).Count; //TODO: this is awful
                     if (probabilities[i][j] == 0) //solve for zero
                     {
                         probabilities[i][j] = 1 / (_classes.ElementAt(i).Value.Count + probMod * _possibleValues[j].Count);

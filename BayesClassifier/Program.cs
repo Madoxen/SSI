@@ -26,7 +26,7 @@ namespace BayesClassifier
                 objects.Add(o);
             }
 
-            ClassifiedObject objectToClassify = new ClassifiedObject() { Label="XD", Properties={"DESZCZOWO", "GORĄCO", "SŁABY"}, Classification=null};            
+            ClassifiedObject objectToClassify = new ClassifiedObject() { Label="XD", Properties={"DESZCZOWO", "CHŁODNO", "MOCNY"}, Classification=null};            
             
 
             Classifier c = new Classifier();
