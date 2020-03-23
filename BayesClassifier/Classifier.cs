@@ -60,7 +60,7 @@ namespace BayesClassifier
                     probabilities[i][j] = _classes.ElementAt(i).Value.FindAll(x => x.Properties.Exists(y => y == input.Properties[j])).Count; //TODO: this is awful
                     if (probabilities[i][j] == 0) //solve for zero
                     {
-                        probabilities[i][j] = 1 / (_classes.ElementAt(i).Value.Count + probMod * _possibleValues[j].Count);
+                        probabilities[i][j] = probMod / (_classes.ElementAt(i).Value.Count + probMod * _possibleValues[j].Count);
                     }
                     else
                     {
