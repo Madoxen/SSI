@@ -34,7 +34,6 @@ namespace ML.Lib.Image
 
         private double GaussianFunction(Point2D pivot, Point2D current)
         {   
-            Debug.WriteLine(pivot - current);
             return GaussianFunction(pivot - current);
         }
 

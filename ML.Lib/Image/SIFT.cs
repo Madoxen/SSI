@@ -1,7 +1,7 @@
 using System;
 using System.Drawing;
 using System.Collections.Generic;
-
+using ML.Lib;
 
 namespace ML.Lib.Image
 {
@@ -12,15 +12,29 @@ namespace ML.Lib.Image
         private static readonly int octaves = 4;
         private static readonly int blurLevels = 5;
 
-        public static double intensityTreshold = 0.2; //treshold that must be exceeded by keypoint to become eligable
-        public static double curvatureTreshold = 2;
 
+        public static double sigmaFactor = Math.Sqrt(2);
+        public static double scaleChange = 0.5; //Scale change between octaves
+
+        public static double intensityTreshold = 0.3; //treshold that must be exceeded by keypoint to become eligable
+        public static double curvatureTreshold = 10;
+
+        public static int collectionRadiusPerOctave = (int)(3.0 * sigmaFactor);
+        public static int orientationBins = 36;
+
+
+        public static int histogramSmoothingPasses = 4;
+        public static double histogramEligableTreshold = 0.8;
+
+
+        private static Bitmap grayBlured;
 
         public static Bitmap Perform(Bitmap input)
         {
             List<PointInt2D> keypoints = new List<PointInt2D>();
             //Convert input to grayscale
             Bitmap gray = BitmapUtils.ConvertToGrayscale(input);
+
 
             //Build scale pyramid
             List<List<Bitmap>> scales = BuildGaussianPyramid(gray, octaves, blurLevels);
@@ -29,6 +43,7 @@ namespace ML.Lib.Image
             //Perform tests
             ContrastTest(keypointCandidates);
             EdgeTest(keypointCandidates);
+            AssignKeypointParameters(keypointCandidates);
 
             return gray;
         }
@@ -40,9 +55,10 @@ namespace ML.Lib.Image
 
             //First create DoG (Diffrence of Gaussians Image) by filtering input with two Gaussian Filters
             //And then substructing results from each other
-            GaussianFilter filter = new GaussianFilter(Math.Sqrt(2), 5, 5);
+            GaussianFilter filter = new GaussianFilter(sigmaFactor, 5, 5);
             List<List<Bitmap>> octaves = new List<List<Bitmap>>();
 
+            grayBlured = filter.UseFilter(gray);
             Bitmap current = new Bitmap(gray);
             double scale = 1.0;
             for (int i = 0; i < numberOfOctaves; i++)
@@ -56,7 +72,7 @@ namespace ML.Lib.Image
                     current = filter.UseFilter(current);
                     octaves[i].Add(current);
                 }
-                scale *= 0.5;
+                scale *= scaleChange;
                 current = BitmapUtils.Resize(gray, scale);
             }
 
@@ -154,16 +170,16 @@ namespace ML.Lib.Image
 
         private static void CalculateSubPixelCoords(List<Keypoint> keypoints, List<List<Bitmap>> DoGs)
         {
-            
+
         }
 
         //Reject keypoint pixels that are below treshold intensity
         public static void ContrastTest(List<Keypoint> keypoints)
         {
-            for(int i = 0; i < keypoints.Count; i++)
+            for (int i = 0; i < keypoints.Count; i++)
             {
                 Keypoint k = keypoints[i];
-                if(k.underlayingBitmap.GetPixel((int)k.coords.x, (int)k.coords.y).GetBrightness() < intensityTreshold)
+                if (k.underlayingBitmap.GetPixel((int)k.coords.x, (int)k.coords.y).GetBrightness() < intensityTreshold)
                     keypoints.Remove(k);
             }
         }
@@ -177,7 +193,7 @@ namespace ML.Lib.Image
             hessian[0] = new double[2];
             hessian[1] = new double[2];
 
-            for(int i = 0; i < keypoints.Count; i++)
+            for (int i = 0; i < keypoints.Count; i++)
             {
                 Keypoint k = keypoints[i];
 
@@ -188,7 +204,7 @@ namespace ML.Lib.Image
 
                 //dyy
                 double dyy = (k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y + 1).R
-                - 2 * k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y).R 
+                - 2 * k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y).R
                 + k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y - 1).R) / 4.0;
 
 
@@ -200,14 +216,14 @@ namespace ML.Lib.Image
 
 
                 double trace = dxx + dyy;
-                double determinant = dxx*dxy - dyy*dxy;
-                double check = (trace*trace)/determinant;
+                double determinant = dxx * dxy - dyy * dxy;
+                double check = (trace * trace) / determinant;
                 //If check is bigger then curvature then reject it
-                if(check >= ( curvatureTreshold + 1.0 )*( curvatureTreshold + 1.0 ) / curvatureTreshold)
+                if (check >= (curvatureTreshold + 1.0) * (curvatureTreshold + 1.0) / curvatureTreshold)
                     keypoints.Remove(k);
             }
 
-           
+
 
         }
 
@@ -223,6 +239,7 @@ namespace ML.Lib.Image
         }
 
         //Calculates hessian matrix out of octave around given pixel
+        //used for calculating subpixel maxima/minima coords
         // dxx dxy dxz
         // dyx dyy dyz
         // dzx dzy dzz
@@ -244,11 +261,11 @@ namespace ML.Lib.Image
 
             //dyy
             double dyy = (dogOctave[pixelCoord.z].GetPixel(pixelCoord.x, pixelCoord.y + 1).R
-             - 2 * kernelPixel 
+             - 2 * kernelPixel
              + dogOctave[pixelCoord.z].GetPixel(pixelCoord.x, pixelCoord.y - 1).R) / 4.0;
             //dzz
             double dzz = (dogOctave[pixelCoord.z + 1].GetPixel(pixelCoord.x, pixelCoord.y).R -
-             2 * kernelPixel + 
+             2 * kernelPixel +
              dogOctave[pixelCoord.z - 1].GetPixel(pixelCoord.x, pixelCoord.y - 1).R) / 4.0;
 
             //dxy also dyx from derivative theorem
@@ -285,9 +302,46 @@ namespace ML.Lib.Image
         }
 
 
-        
+
+        //Calculates and assings keypoint magnitude and orientation
+        public static void AssignKeypointParameters(List<Keypoint> keypoints)
+        {
+
+            for (int a = 0; a < keypoints.Count; a++)
+            {
+                Keypoint k = keypoints[a];
+
+                int r = (octaves - k.octave) * collectionRadiusPerOctave; //"radius" is simply square size
+                double[] histogram = new double[36];
+                double exp_denom = sigmaFactor * sigmaFactor * 2.0;
+
+                //build histogram
+                for (int i = -r; i <= r; i++)
+                {
+                    for (int j = -r; j <= r; j++)
+                    {
+                        if (i + k.coords.x < 0 || j + k.coords.y < 0 || i + k.coords.x > k.underlayingBitmap.Width || j + k.coords.y > k.underlayingBitmap.Height)
+                            continue;
+
+                        double dx = (double)k.GetPixel(new PointInt2D(1, 0)).R - (double)k.GetPixel(new PointInt2D(-1, 0)).R;
+                        double dy = (double)k.GetPixel(new PointInt2D(0, -1)).R - (double)k.GetPixel(new PointInt2D(0, -1)).R;
+                        double magnitude = Math.Sqrt(dx * dx + dy * dy);
+                        double orientation = Math.Atan2(dy, dx);
+
+                        double w = Math.Exp(-(i * i + j * j) / exp_denom);
+                        int binID = (int)Math.Round(orientationBins * (orientation + Math.PI) / (Math.PI * Math.PI *2.0));
+                        binID = (binID < orientationBins) ? binID : 0;
+                        histogram[binID] += w * magnitude;
+                    }
+                }
 
 
+                //Calculate scale
+                k.orientation = histogram.MaxAt();
+                k.scale = sigmaFactor * Math.Pow(scaleChange, k.octave);
+                Console.WriteLine(k.orientation);
+            }
+        }
 
 
 
@@ -299,11 +353,11 @@ namespace ML.Lib.Image
 
             public PointInt2D intCoords
             {
-                get {return new PointInt2D((int)coords.x,(int)coords.y);}
+                get { return new PointInt2D((int)coords.x, (int)coords.y); }
             }
 
 
-            public double magnitude;
+            public double scale;
             public double orientation;
 
 
@@ -315,16 +369,36 @@ namespace ML.Lib.Image
             public Keypoint(int x, int y, int layer, int octave, Bitmap underlayingBitmap)
             {
                 coords = new Point2D(x, y);
-                magnitude = 0;
+                scale = 0;
                 orientation = 0;
                 this.octave = octave;
                 this.layer = layer;
                 this.underlayingBitmap = underlayingBitmap;
             }
 
+            //Creates deep copy of a keypoint
+            public Keypoint(Keypoint k)
+            {
+                coords = new Point2D(coords.x, coords.y);
+                scale = k.scale;
+                orientation = k.orientation;
+                octave = k.octave;
+                layer = k.layer;
+                underlayingBitmap = k.underlayingBitmap;
+            }
+
+            //Gets pixel from underlying bitmap
+            public Color GetPixel()
+            {
+                return underlayingBitmap.GetPixel(intCoords.x, intCoords.y);
+            }
+
+            public Color GetPixel(PointInt2D offset)
+            {
+                return underlayingBitmap.GetPixel(intCoords.x + offset.x, intCoords.y + offset.y);
+            }
         }
-
-
 
     }
 }
+

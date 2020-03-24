@@ -76,6 +76,51 @@ namespace ML.Lib.Image
 
 
 
+
+        // Draw arrow heads or tails for the
+        // segment from p1 to p2.
+        public static void DrawArrow(Bitmap b, Pen pen, PointF p1, PointF p2,
+            float length)
+        {
+
+            using (Graphics g = Graphics.FromImage(b))
+            {
+                // Draw the shaft.
+                g.DrawLine(pen, p1, p2);
+
+                // Find the arrow shaft unit vector.
+                float vx = p2.X - p1.X;
+                float vy = p2.Y - p1.Y;
+                float dist = (float)Math.Sqrt(vx * vx + vy * vy);
+                vx /= dist;
+                vy /= dist;
+
+
+                DrawArrowhead(g, pen, p1, -vx, -vy, length);
+            }
+
+
+
+        }
+
+        // Draw an arrowhead at the given point
+        // in the normalized direction <nx, ny>.
+        private static void DrawArrowhead(Graphics gr, Pen pen,
+            PointF p, float nx, float ny, float length)
+        {
+            float ax = length * (-ny - nx);
+            float ay = length * (nx - ny);
+            PointF[] points =
+            {
+                new PointF(p.X + ax, p.Y + ay),
+                p,
+                new PointF(p.X - ay, p.Y + ax)
+            };
+            gr.DrawLines(pen, points);
+        }
+
+
+
     }
 
 

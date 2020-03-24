@@ -1,165 +1,1070 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TestRun id="48c577a8-5d7e-4a32-9012-7b097735f1bf" name="@madoX 2020-03-24 17:54:42" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
-  <Times creation="2020-03-24T17:54:42.4634808+01:00" queuing="2020-03-24T17:54:42.4634809+01:00" start="2020-03-24T17:54:40.5467276+01:00" finish="2020-03-24T17:54:44.5855273+01:00" />
-  <TestSettings name="default" id="8f2249ba-321e-4631-b724-70e564da0e44">
-    <Deployment runDeploymentRoot="_madoX_2020-03-24_17_54_42" />
+<TestRun id="265e8201-edd1-4ab9-bb34-994f7424aafb" name="@madoX 2020-03-24 21:51:04" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2020-03-24T21:51:04.8310303+01:00" queuing="2020-03-24T21:51:04.8310304+01:00" start="2020-03-24T21:51:02.9026547+01:00" finish="2020-03-24T21:51:18.2947371+01:00" />
+  <TestSettings name="default" id="cffc0129-2abc-4bbc-9a1d-6aa8596ced2e">
+    <Deployment runDeploymentRoot="_madoX_2020-03-24_21_51_04" />
   </TestSettings>
   <Results>
-    <UnitTestResult executionId="6eb996a4-394a-4de3-bb01-4d955ebf7e77" testId="ae8b806e-91cd-158d-cf84-39ff4ea33259" testName="TestDoGCreation" computerName="madoX" duration="00:00:00.2706937" startTime="2020-03-24T17:54:44.0298541+01:00" endTime="2020-03-24T17:54:44.3009105+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6eb996a4-394a-4de3-bb01-4d955ebf7e77" />
-    <UnitTestResult executionId="21b3fcef-b7c0-4ef0-a5db-1aedf8bd00f3" testId="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d" testName="TestEdgeTest" computerName="madoX" duration="00:00:00.0442546" startTime="2020-03-24T17:54:44.4890423+01:00" endTime="2020-03-24T17:54:44.5334171+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="21b3fcef-b7c0-4ef0-a5db-1aedf8bd00f3">
+    <UnitTestResult executionId="5a7360f7-5329-44e8-b92c-1560ac46f162" testId="6141bb7b-a41a-f909-b336-d09d324b86c1" testName="TestAssignParameters" computerName="madoX" duration="00:00:00.5534853" startTime="2020-03-24T21:51:17.6868568+01:00" endTime="2020-03-24T21:51:18.2405291+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5a7360f7-5329-44e8-b92c-1560ac46f162">
       <Output>
-        <StdOut>Debug Trace:
-Test: 128 rejected</StdOut>
+        <StdOut>16.597616148588923
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+-3.141592653589793
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+-3.141592653589793
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+-3.141592653589793
+0
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+-3.141592653589793
+-3.141592653589793
+-3.141592653589793
+0
+0
+0
+0
+0
+0
+-3.141592653589793
+0
+0
+0
+-3.141592653589793
+16.597616148588923
+16.597616148588923
+16.597616148588923
+0
+16.597616148588923
+0
+16.597616148588923
+16.597616148588923
+16.597616148588923
+16.597616148588923
+16.597616148588923
+0
+0
+0
+0
+0
+0
+16.597616148588923
+0
+0
+0
+0
+-3.141592653589793
+-3.141592653589793
+0
+0</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="9f4eaf7f-f89c-4c9b-987a-a203ea9e504d" testId="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539" testName="TestPyramidBuilding" computerName="madoX" duration="00:00:03.0289670" startTime="2020-03-24T17:54:40.9996736+01:00" endTime="2020-03-24T17:54:44.0288324+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9f4eaf7f-f89c-4c9b-987a-a203ea9e504d">
+    <UnitTestResult executionId="d52c4a78-10dd-481b-a4c9-238439d385f9" testId="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539" testName="TestPyramidBuilding" computerName="madoX" duration="00:00:12.4745486" startTime="2020-03-24T21:51:03.3631534+01:00" endTime="2020-03-24T21:51:15.8378589+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d52c4a78-10dd-481b-a4c9-238439d385f9" />
+    <UnitTestResult executionId="0359f224-4915-4ef1-8235-3cd1d63cd1d7" testId="ae8b806e-91cd-158d-cf84-39ff4ea33259" testName="TestDoGCreation" computerName="madoX" duration="00:00:01.0062951" startTime="2020-03-24T21:51:15.8409282+01:00" endTime="2020-03-24T21:51:16.8479082+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0359f224-4915-4ef1-8235-3cd1d63cd1d7" />
+    <UnitTestResult executionId="914f237c-f9c2-4737-92f4-fb8981bf2516" testId="f506b79a-2f44-5be9-d26c-b2a5166b61ba" testName="Test" computerName="madoX" duration="00:00:00.0000676" startTime="2020-03-24T21:51:03.3628737+01:00" endTime="2020-03-24T21:51:03.3631421+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="914f237c-f9c2-4737-92f4-fb8981bf2516" />
+    <UnitTestResult executionId="66496b9e-245a-4a33-8e3a-b5c7eac2c200" testId="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d" testName="TestEdgeTest" computerName="madoX" duration="00:00:00.1560418" startTime="2020-03-24T21:51:17.5303724+01:00" endTime="2020-03-24T21:51:17.6867983+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="66496b9e-245a-4a33-8e3a-b5c7eac2c200">
       <Output>
         <StdOut>Debug Trace:
-2 2
-2 1
-2 0
-2 -1
-2 -2
-1 2
-1 1
-1 0
-1 -1
-1 -2
-0 2
-0 1
-0 0
-0 -1
-0 -2
--1 2
--1 1
--1 0
--1 -1
--1 -2
--2 2
--2 1
--2 0
--2 -1
--2 -2</StdOut>
+Test: 871 rejected</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="13ecc1c5-5e7c-4a69-93ad-bb0745880c34" testId="66aaeb20-50ad-9b68-0121-0ae2de24b645" testName="GaussianFilterTest" computerName="madoX" duration="00:00:00.0238008" startTime="2020-03-24T17:54:40.9754129+01:00" endTime="2020-03-24T17:54:40.9993423+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="13ecc1c5-5e7c-4a69-93ad-bb0745880c34">
+    <UnitTestResult executionId="324388ee-f7d3-4e32-a3ba-49814e6155f8" testId="66aaeb20-50ad-9b68-0121-0ae2de24b645" testName="GaussianFilterTest" computerName="madoX" duration="00:00:00.0231618" startTime="2020-03-24T21:51:03.3395300+01:00" endTime="2020-03-24T21:51:03.3628311+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="324388ee-f7d3-4e32-a3ba-49814e6155f8" />
+    <UnitTestResult executionId="a234bf9b-2c8a-446d-bbd5-3f8921b2d976" testId="cbe2e6f9-6de2-9e73-a532-7b5783051631" testName="TestContrastTest" computerName="madoX" duration="00:00:00.1624661" startTime="2020-03-24T21:51:17.3665907+01:00" endTime="2020-03-24T21:51:17.5294619+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a234bf9b-2c8a-446d-bbd5-3f8921b2d976">
       <Output>
         <StdOut>Debug Trace:
-2 2
-2 1
-2 0
-2 -1
-2 -2
-1 2
-1 1
-1 0
-1 -1
-1 -2
-0 2
-0 1
-0 0
-0 -1
-0 -2
--1 2
--1 1
--1 0
--1 -1
--1 -2
--2 2
--2 1
--2 0
--2 -1
--2 -2</StdOut>
+Test: 1854 rejected</StdOut>
       </Output>
     </UnitTestResult>
-    <UnitTestResult executionId="8dc13547-6b5d-419f-93b3-fa173f64ef7f" testId="cbe2e6f9-6de2-9e73-a532-7b5783051631" testName="TestContrastTest" computerName="madoX" duration="00:00:00.0444984" startTime="2020-03-24T17:54:44.4441561+01:00" endTime="2020-03-24T17:54:44.4889788+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8dc13547-6b5d-419f-93b3-fa173f64ef7f">
-      <Output>
-        <StdOut>Debug Trace:
-Test: 264 rejected</StdOut>
-      </Output>
-    </UnitTestResult>
-    <UnitTestResult executionId="c9340329-d805-4206-a7d9-2a9188b9b9a2" testId="2143b7c7-6299-6b01-b162-6d724aa767f8" testName="TestFindKeypoints" computerName="madoX" duration="00:00:00.1421324" startTime="2020-03-24T17:54:44.3011401+01:00" endTime="2020-03-24T17:54:44.4440140+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c9340329-d805-4206-a7d9-2a9188b9b9a2" />
-    <UnitTestResult executionId="e4dfcf22-1436-400e-905a-04b63388defc" testId="f506b79a-2f44-5be9-d26c-b2a5166b61ba" testName="Test" computerName="madoX" duration="00:00:00.0000627" startTime="2020-03-24T17:54:40.9993972+01:00" endTime="2020-03-24T17:54:40.9996619+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e4dfcf22-1436-400e-905a-04b63388defc" />
-    <UnitTestResult executionId="ec8e90c3-71ae-49f5-9646-c7c2a4cc070c" testId="a17d96d6-14da-4cdf-438f-09cf1bf34161" testName="GaussianFilterCtorTest" computerName="madoX" duration="00:00:00.0037022" startTime="2020-03-24T17:54:40.9467950+01:00" endTime="2020-03-24T17:54:40.9700078+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ec8e90c3-71ae-49f5-9646-c7c2a4cc070c">
-      <Output>
-        <StdOut>Debug Trace:
-2 2
-2 1
-2 0
-2 -1
-2 -2
-1 2
-1 1
-1 0
-1 -1
-1 -2
-0 2
-0 1
-0 0
-0 -1
-0 -2
--1 2
--1 1
--1 0
--1 -1
--1 -2
--2 2
--2 1
--2 0
--2 -1
--2 -2</StdOut>
-      </Output>
-    </UnitTestResult>
+    <UnitTestResult executionId="cebe7c43-75e4-46f1-8a72-9482162dea71" testId="a17d96d6-14da-4cdf-438f-09cf1bf34161" testName="GaussianFilterCtorTest" computerName="madoX" duration="00:00:00.0029162" startTime="2020-03-24T21:51:03.3125131+01:00" endTime="2020-03-24T21:51:03.3346234+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cebe7c43-75e4-46f1-8a72-9482162dea71" />
+    <UnitTestResult executionId="aee3a281-8e96-4efe-aa6d-6fbe5ecfbfd3" testId="2143b7c7-6299-6b01-b162-6d724aa767f8" testName="TestFindKeypoints" computerName="madoX" duration="00:00:00.5177600" startTime="2020-03-24T21:51:16.8480750+01:00" endTime="2020-03-24T21:51:17.3664334+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aee3a281-8e96-4efe-aa6d-6fbe5ecfbfd3" />
   </Results>
   <TestDefinitions>
     <UnitTest name="Test" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="f506b79a-2f44-5be9-d26c-b2a5166b61ba">
-      <Execution id="e4dfcf22-1436-400e-905a-04b63388defc" />
+      <Execution id="914f237c-f9c2-4737-92f4-fb8981bf2516" />
       <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="Test" />
     </UnitTest>
     <UnitTest name="TestContrastTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="cbe2e6f9-6de2-9e73-a532-7b5783051631">
-      <Execution id="8dc13547-6b5d-419f-93b3-fa173f64ef7f" />
+      <Execution id="a234bf9b-2c8a-446d-bbd5-3f8921b2d976" />
       <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestContrastTest" />
     </UnitTest>
     <UnitTest name="TestFindKeypoints" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="2143b7c7-6299-6b01-b162-6d724aa767f8">
-      <Execution id="c9340329-d805-4206-a7d9-2a9188b9b9a2" />
+      <Execution id="aee3a281-8e96-4efe-aa6d-6fbe5ecfbfd3" />
       <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestFindKeypoints" />
     </UnitTest>
     <UnitTest name="GaussianFilterTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="66aaeb20-50ad-9b68-0121-0ae2de24b645">
-      <Execution id="13ecc1c5-5e7c-4a69-93ad-bb0745880c34" />
+      <Execution id="324388ee-f7d3-4e32-a3ba-49814e6155f8" />
       <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.FilterTests" name="GaussianFilterTest" />
     </UnitTest>
+    <UnitTest name="TestAssignParameters" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="6141bb7b-a41a-f909-b336-d09d324b86c1">
+      <Execution id="5a7360f7-5329-44e8-b92c-1560ac46f162" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestAssignParameters" />
+    </UnitTest>
     <UnitTest name="TestDoGCreation" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="ae8b806e-91cd-158d-cf84-39ff4ea33259">
-      <Execution id="6eb996a4-394a-4de3-bb01-4d955ebf7e77" />
+      <Execution id="0359f224-4915-4ef1-8235-3cd1d63cd1d7" />
       <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestDoGCreation" />
     </UnitTest>
     <UnitTest name="TestPyramidBuilding" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539">
-      <Execution id="9f4eaf7f-f89c-4c9b-987a-a203ea9e504d" />
+      <Execution id="d52c4a78-10dd-481b-a4c9-238439d385f9" />
       <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestPyramidBuilding" />
     </UnitTest>
     <UnitTest name="GaussianFilterCtorTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="a17d96d6-14da-4cdf-438f-09cf1bf34161">
-      <Execution id="ec8e90c3-71ae-49f5-9646-c7c2a4cc070c" />
+      <Execution id="cebe7c43-75e4-46f1-8a72-9482162dea71" />
       <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.FilterTests" name="GaussianFilterCtorTest" />
     </UnitTest>
     <UnitTest name="TestEdgeTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d">
-      <Execution id="21b3fcef-b7c0-4ef0-a5db-1aedf8bd00f3" />
+      <Execution id="66496b9e-245a-4a33-8e3a-b5c7eac2c200" />
       <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestEdgeTest" />
     </UnitTest>
   </TestDefinitions>
   <TestEntries>
-    <TestEntry testId="ae8b806e-91cd-158d-cf84-39ff4ea33259" executionId="6eb996a4-394a-4de3-bb01-4d955ebf7e77" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d" executionId="21b3fcef-b7c0-4ef0-a5db-1aedf8bd00f3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539" executionId="9f4eaf7f-f89c-4c9b-987a-a203ea9e504d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="66aaeb20-50ad-9b68-0121-0ae2de24b645" executionId="13ecc1c5-5e7c-4a69-93ad-bb0745880c34" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="cbe2e6f9-6de2-9e73-a532-7b5783051631" executionId="8dc13547-6b5d-419f-93b3-fa173f64ef7f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="2143b7c7-6299-6b01-b162-6d724aa767f8" executionId="c9340329-d805-4206-a7d9-2a9188b9b9a2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="f506b79a-2f44-5be9-d26c-b2a5166b61ba" executionId="e4dfcf22-1436-400e-905a-04b63388defc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
-    <TestEntry testId="a17d96d6-14da-4cdf-438f-09cf1bf34161" executionId="ec8e90c3-71ae-49f5-9646-c7c2a4cc070c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6141bb7b-a41a-f909-b336-d09d324b86c1" executionId="5a7360f7-5329-44e8-b92c-1560ac46f162" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539" executionId="d52c4a78-10dd-481b-a4c9-238439d385f9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae8b806e-91cd-158d-cf84-39ff4ea33259" executionId="0359f224-4915-4ef1-8235-3cd1d63cd1d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f506b79a-2f44-5be9-d26c-b2a5166b61ba" executionId="914f237c-f9c2-4737-92f4-fb8981bf2516" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d" executionId="66496b9e-245a-4a33-8e3a-b5c7eac2c200" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66aaeb20-50ad-9b68-0121-0ae2de24b645" executionId="324388ee-f7d3-4e32-a3ba-49814e6155f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbe2e6f9-6de2-9e73-a532-7b5783051631" executionId="a234bf9b-2c8a-446d-bbd5-3f8921b2d976" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a17d96d6-14da-4cdf-438f-09cf1bf34161" executionId="cebe7c43-75e4-46f1-8a72-9482162dea71" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2143b7c7-6299-6b01-b162-6d724aa767f8" executionId="aee3a281-8e96-4efe-aa6d-6fbe5ecfbfd3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <TestLists>
     <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
     <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
   <ResultSummary outcome="Completed">
-    <Counters total="8" executed="8" passed="8" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Counters total="9" executed="9" passed="9" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
   </ResultSummary>
 </TestRun>

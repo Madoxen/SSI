@@ -1,4 +1,4 @@
-namespace ML.Lib.Image
+namespace ML.Lib
 {
 
     public struct PointInt2D
