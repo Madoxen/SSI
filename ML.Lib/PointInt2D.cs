@@ -35,8 +35,12 @@ namespace ML.Lib.Image
             return lh + (-rh);
         }
 
+        public override string ToString()
+        {
+            return x.ToString() + " " + y.ToString();
+        }
 
-        
+
     }
 
 

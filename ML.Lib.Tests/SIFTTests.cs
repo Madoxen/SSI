@@ -18,7 +18,7 @@ namespace ML.Lib.Tests
 
         static List<List<Bitmap>> octaves = null;
         static List<List<Bitmap>> DoGs = null;
-        static List<List<PointInt3D>> candidates = null;
+        static List<SIFT.Keypoint> candidates = null;
 
 
         [TestMethod]
@@ -70,24 +70,23 @@ namespace ML.Lib.Tests
         public void TestFindKeypoints()
         {
             candidates = SIFT.FindKeypoints(DoGs);
-           
-            int currentBitmap = 1;
-            for(int i = 0; i < candidates.Count; i++)
+            Bitmap currentBitmap = null;
+            int currentOctave = -1;
+            int currentLayer = -1;
+            foreach(SIFT.Keypoint c in candidates)
             {
-                Bitmap b = new Bitmap(DoGs[i][0].Width, DoGs[i][0].Height);
-                for(int j = 0; j < candidates[i].Count; j++)
+                if(c.octave != currentOctave || c.layer != currentLayer)
                 {
-                    if(currentBitmap != candidates[i][j].x)
-                    {
-                        b.Save("../../../TestGeneratedFiles/KeypointCandidates/" + "points_" + currentBitmap  + "_" + i + "_" + j + ".png");
-                        b = new Bitmap(DoGs[i][0].Width, DoGs[i][0].Height);
-                        currentBitmap = candidates[i][j].x;
-                    }
-                        
-                    b.SetPixel(candidates[i][j].y, candidates[i][j].z,Color.White);
+                    currentBitmap?.Save("../../../TestGeneratedFiles/KeypointCandidates/points" + currentOctave + "_" + currentLayer+".png");
+                    currentBitmap = new Bitmap(c.underlayingBitmap); //copy underlaying bitmap
+                    currentOctave = c.octave;
+                    currentLayer = c.layer;
                 }
-                
+                 
+
+                currentBitmap.SetPixel((int)c.coords.x, (int)c.coords.y, Color.White);
             }
+            
 
             
         }
