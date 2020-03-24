@@ -12,6 +12,10 @@ namespace ML.Lib.Image
         private static readonly int octaves = 4;
         private static readonly int blurLevels = 5;
 
+        public static double intensityTreshold = 0.2; //treshold that must be exceeded by keypoint to become eligable
+        public static double curvatureTreshold = 2;
+
+
         public static Bitmap Perform(Bitmap input)
         {
             List<PointInt2D> keypoints = new List<PointInt2D>();
@@ -22,7 +26,9 @@ namespace ML.Lib.Image
             List<List<Bitmap>> scales = BuildGaussianPyramid(gray, octaves, blurLevels);
             List<List<Bitmap>> dogs = CreateDoGs(scales);
             List<Keypoint> keypointCandidates = FindKeypoints(dogs);
-
+            //Perform tests
+            ContrastTest(keypointCandidates);
+            EdgeTest(keypointCandidates);
 
             return gray;
         }
@@ -145,6 +151,68 @@ namespace ML.Lib.Image
 
 
 
+
+        private static void CalculateSubPixelCoords(List<Keypoint> keypoints, List<List<Bitmap>> DoGs)
+        {
+            
+        }
+
+        //Reject keypoint pixels that are below treshold intensity
+        public static void ContrastTest(List<Keypoint> keypoints)
+        {
+            for(int i = 0; i < keypoints.Count; i++)
+            {
+                Keypoint k = keypoints[i];
+                if(k.underlayingBitmap.GetPixel((int)k.coords.x, (int)k.coords.y).GetBrightness() < intensityTreshold)
+                    keypoints.Remove(k);
+            }
+        }
+
+
+
+        //Reject keypoints that are on edge
+        public static void EdgeTest(List<Keypoint> keypoints)
+        {
+            double[][] hessian = new double[2][];
+            hessian[0] = new double[2];
+            hessian[1] = new double[2];
+
+            for(int i = 0; i < keypoints.Count; i++)
+            {
+                Keypoint k = keypoints[i];
+
+                //dxx
+                double dxx = (k.underlayingBitmap.GetPixel(k.intCoords.x + 1, k.intCoords.y).R -
+                2 * k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y).R
+                + k.underlayingBitmap.GetPixel(k.intCoords.x - 1, k.intCoords.y).R) / 4.0;
+
+                //dyy
+                double dyy = (k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y + 1).R
+                - 2 * k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y).R 
+                + k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y - 1).R) / 4.0;
+
+
+                //dxy also dyx from derivative theorem
+                double dxy = (k.underlayingBitmap.GetPixel(k.intCoords.x + 1, k.intCoords.y + 1).R -
+                k.underlayingBitmap.GetPixel(k.intCoords.x - 1, k.intCoords.y + 1).R -
+                k.underlayingBitmap.GetPixel(k.intCoords.x + 1, k.intCoords.y - 1).R +
+                k.underlayingBitmap.GetPixel(k.intCoords.x - 1, k.intCoords.y - 1).R) / 4.0;
+
+
+                double trace = dxx + dyy;
+                double determinant = dxx*dxy - dyy*dxy;
+                double check = (trace*trace)/determinant;
+                //If check is bigger then curvature then reject it
+                if(check >= ( curvatureTreshold + 1.0 )*( curvatureTreshold + 1.0 ) / curvatureTreshold)
+                    keypoints.Remove(k);
+            }
+
+           
+
+        }
+
+
+
         //Calculates derivative around a pixel
         private static Point3D Derivative3D(List<Bitmap> dogOctave, PointInt3D pixelCoord)
         {
@@ -213,11 +281,11 @@ namespace ML.Lib.Image
             result[2][1] = dyz;
             result[2][2] = dzz;
 
-
             return result;
         }
 
 
+        
 
 
 
@@ -226,6 +294,15 @@ namespace ML.Lib.Image
         public class Keypoint
         {
             public Point2D coords; // x -> Pixel X axis, Y-> Pixel Y Axis, Z -> Octave Axis
+
+
+
+            public PointInt2D intCoords
+            {
+                get {return new PointInt2D((int)coords.x,(int)coords.y);}
+            }
+
+
             public double magnitude;
             public double orientation;
 

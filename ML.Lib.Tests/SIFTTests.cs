@@ -32,7 +32,8 @@ namespace ML.Lib.Tests
         [TestMethod]
         public void TestPyramidBuilding()
         {
-            Bitmap b = new Bitmap("Resources/test_image1.jpg");
+            Bitmap b = new Bitmap("../../../Resources/cat3.jpg");
+            b = BitmapUtils.ConvertToGrayscale(b);
             octaves = SIFT.BuildGaussianPyramid(b, 4, 5);
             int i = 0;
             int j = 0;
@@ -86,9 +87,57 @@ namespace ML.Lib.Tests
 
                 currentBitmap.SetPixel((int)c.coords.x, (int)c.coords.y, Color.White);
             }
-            
+        
+        }
 
-            
+        [TestMethod]
+        public void TestContrastTest()
+        {
+            int co = candidates.Count;
+            SIFT.ContrastTest(candidates);
+            Debug.WriteLine("Test: " + (co - candidates.Count).ToString() + " rejected" );
+
+            Bitmap currentBitmap = null;
+            int currentOctave = -1;
+            int currentLayer = -1;
+            foreach(SIFT.Keypoint c in candidates)
+            {
+                if(c.octave != currentOctave || c.layer != currentLayer)
+                {
+                    currentBitmap?.Save("../../../TestGeneratedFiles/AfterContrastTest/points" + currentOctave + "_" + currentLayer+".png");
+                    currentBitmap = new Bitmap(c.underlayingBitmap); //copy underlaying bitmap
+                    currentOctave = c.octave;
+                    currentLayer = c.layer;
+                }
+                 
+
+                currentBitmap.SetPixel((int)c.coords.x, (int)c.coords.y, Color.White);
+            }
+        }
+
+        [TestMethod]
+        public void TestEdgeTest()
+        {
+            int co = candidates.Count;
+            SIFT.EdgeTest(candidates);
+            Debug.WriteLine("Test: " + (co -candidates.Count).ToString() + " rejected" );
+
+            Bitmap currentBitmap = null;
+            int currentOctave = -1;
+            int currentLayer = -1;
+            foreach(SIFT.Keypoint c in candidates)
+            {
+                if(c.octave != currentOctave || c.layer != currentLayer)
+                {
+                    currentBitmap?.Save("../../../TestGeneratedFiles/AfterEdgeTest/points" + currentOctave + "_" + currentLayer+".png");
+                    currentBitmap = new Bitmap(c.underlayingBitmap); //copy underlaying bitmap
+                    currentOctave = c.octave;
+                    currentLayer = c.layer;
+                }
+                 
+
+                currentBitmap.SetPixel((int)c.coords.x, (int)c.coords.y, Color.White);
+            }
         }
     }
 }
