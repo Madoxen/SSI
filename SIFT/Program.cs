@@ -9,7 +9,7 @@ namespace SiftProgram
     {
         static void Main(string[] args)
         {
-            Bitmap b = new Bitmap("Resources/cat3.jpg");
+            Bitmap b = new Bitmap(args[0]);
             SIFT.Perform(b);
         }
     }

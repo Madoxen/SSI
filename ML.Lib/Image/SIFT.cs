@@ -34,8 +34,8 @@ namespace ML.Lib.Image
             List<PointInt2D> keypoints = new List<PointInt2D>();
             //Convert input to grayscale
             Bitmap gray = BitmapUtils.ConvertToGrayscale(input);
-
-
+            //resize picture to be 2x size to detect highest spacial frequencies
+            gray = BitmapUtils.Resize(gray, 2.0);
             //Build scale pyramid
             List<List<Bitmap>> scales = BuildGaussianPyramid(gray, octaves, blurLevels);
             List<List<Bitmap>> dogs = CreateDoGs(scales);
@@ -43,8 +43,24 @@ namespace ML.Lib.Image
             //Perform tests
             ContrastTest(keypointCandidates);
             EdgeTest(keypointCandidates);
-            AssignKeypointParameters(keypointCandidates);
+            AssignKeypointParameters(keypointCandidates,scales);
+            AdjustForDoubleSize(keypointCandidates);
 
+            Pen p = Pens.Blue;
+            foreach (SIFT.Keypoint c in keypointCandidates)
+            {
+                Point2D transformedCoords = c.coords;
+                //Transform coords
+                if (c.octave != 0)
+                {
+                    transformedCoords = new Point2D(c.coords.x * (Math.Pow(1/SIFT.scaleChange, c.octave)), c.coords.y * (Math.Pow(1/SIFT.scaleChange, c.octave)));
+                }
+
+                BitmapUtils.DrawSIFTFeature(gray, p, new PointF((float)transformedCoords.x, (float)transformedCoords.y),
+                 new PointF((float)(transformedCoords.x + c.scale * 25 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
+                 (float)(transformedCoords.y + c.scale * 25 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
+
+            }
             return gray;
         }
 
@@ -304,14 +320,14 @@ namespace ML.Lib.Image
 
 
         //Calculates and assings keypoint magnitude and orientation
-        public static void AssignKeypointParameters(List<Keypoint> keypoints)
+        public static void AssignKeypointParameters(List<Keypoint> keypoints, List<List<Bitmap>> initialSmooth)
         {
 
             for (int a = 0; a < keypoints.Count; a++)
             {
                 Keypoint k = keypoints[a];
 
-                int r = (octaves - k.octave) * collectionRadiusPerOctave; //"radius" is simply square size
+                int r = ((octaves - k.octave) * collectionRadiusPerOctave) + 2; //"radius" is simply square size
                 double[] histogram = new double[36];
                 double exp_denom = sigmaFactor * sigmaFactor * 2.0;
 
@@ -323,13 +339,14 @@ namespace ML.Lib.Image
                         if (i + k.coords.x < 0 || j + k.coords.y < 0 || i + k.coords.x > k.underlayingBitmap.Width || j + k.coords.y > k.underlayingBitmap.Height)
                             continue;
 
-                        double dx = (double)k.GetPixel(new PointInt2D(1, 0)).R - (double)k.GetPixel(new PointInt2D(-1, 0)).R;
-                        double dy = (double)k.GetPixel(new PointInt2D(0, -1)).R - (double)k.GetPixel(new PointInt2D(0, -1)).R;
+                        double dx = (double)initialSmooth[k.octave][1].GetPixel(k.intCoords.x + 1, k.intCoords.y).R - (double)initialSmooth[k.octave][1].GetPixel(k.intCoords.x - 1, k.intCoords.y).R;
+                        double dy = (double)initialSmooth[k.octave][1].GetPixel(k.intCoords.x, k.intCoords.y + 1).R - (double)initialSmooth[k.octave][1].GetPixel(k.intCoords.x, k.intCoords.y - 1).R;
                         double magnitude = Math.Sqrt(dx * dx + dy * dy);
-                        double orientation = Math.Atan2(dy, dx);
+                        double orientation = Math.Atan2(dy, dx) * (180.0 / Math.PI);
+                        orientation = orientation + 180;
 
                         double w = Math.Exp(-(i * i + j * j) / exp_denom);
-                        int binID = (int)Math.Round(orientationBins * (orientation + Math.PI) / (Math.PI * Math.PI *2.0));
+                        int binID = (int)(Math.Round(orientation) / (360.0 / (double)orientationBins));
                         binID = (binID < orientationBins) ? binID : 0;
                         histogram[binID] += w * magnitude;
                     }
@@ -343,6 +360,17 @@ namespace ML.Lib.Image
             }
         }
 
+
+
+        public static void AdjustForDoubleSize(List<Keypoint> keypoints)
+        {
+            foreach(Keypoint k in keypoints)
+            {
+                k.coords = new Point2D(k.coords.x/2.0, k.coords.y/2.0);
+                k.scale /= 2.0;
+            }
+
+        }
 
 
         public class Keypoint

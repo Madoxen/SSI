@@ -20,6 +20,8 @@ namespace ML.Lib.Tests
         static List<List<Bitmap>> DoGs = null;
         static List<SIFT.Keypoint> candidates = null;
 
+        static Bitmap original;
+
 
         [TestMethod]
         public void Test()
@@ -33,6 +35,7 @@ namespace ML.Lib.Tests
         public void TestPyramidBuilding()
         {
             Bitmap b = new Bitmap("../../../Resources/cat3.jpg");
+            original = b;
             b = BitmapUtils.ConvertToGrayscale(b);
             b = BitmapUtils.Resize(b, 2.0); //resize image 2x times to include highest spacial frequencies
             octaves = SIFT.BuildGaussianPyramid(b, 4, 5);
@@ -144,7 +147,7 @@ namespace ML.Lib.Tests
         [TestMethod]
         public void TestAssignParameters()
         {
-            SIFT.AssignKeypointParameters(candidates);
+            SIFT.AssignKeypointParameters(candidates, octaves);
 
             Bitmap currentBitmap = null;
             int currentOctave = -1;
@@ -160,10 +163,36 @@ namespace ML.Lib.Tests
                     currentLayer = c.layer;
                 }
 
-                BitmapUtils.DrawArrow(currentBitmap,p, new PointF((float)c.coords.x, (float)c.coords.y),
-                 new PointF((float)(c.coords.x + c.scale*Math.Cos(c.orientation * (Math.PI/180))),
-                 (float)(c.coords.y + c.scale*Math.Sin(c.orientation * (Math.PI/180)))),0.4f);
+                BitmapUtils.DrawSIFTFeature(currentBitmap, p, new PointF((float)c.coords.x, (float)c.coords.y),
+                 new PointF((float)(c.coords.x + c.scale * 25 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
+                 (float)(c.coords.y + c.scale * 25 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
             }
         }
+
+
+        [TestMethod]
+        public void FinalizeResult()
+        {
+            Pen p = Pens.Blue;
+            SIFT.AdjustForDoubleSize(candidates);
+            foreach (SIFT.Keypoint c in candidates)
+            {
+                Point2D transformedCoords = c.coords;
+                //Transform coords
+                if (c.octave != 0)
+                {
+                    transformedCoords = new Point2D(c.coords.x * (Math.Pow(1/SIFT.scaleChange, c.octave)), c.coords.y * (Math.Pow(1/SIFT.scaleChange, c.octave)));
+                }
+
+                BitmapUtils.DrawSIFTFeature(original, p, new PointF((float)transformedCoords.x, (float)transformedCoords.y),
+                 new PointF((float)(transformedCoords.x + c.scale * 25 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
+                 (float)(transformedCoords.y + c.scale * 25 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
+
+            }
+            original.Save("../../../TestGeneratedFiles/last.png");
+
+        }
+
+
     }
 }
