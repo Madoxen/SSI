@@ -13,11 +13,13 @@ namespace ML.Lib.Image
         private static readonly int blurLevels = 5;
 
 
-        public static double sigmaFactor = Math.Sqrt(2);
+        public static double sigmaFactor = 1.6;
+        public static double sigmaMultiplier = Math.Sqrt(2);
+
         public static double scaleChange = 0.5; //Scale change between octaves
 
-        public static double intensityTreshold = 0.03; //treshold that must be exceeded by keypoint to become eligable
-        public static double curvatureTreshold = 10;
+        public static double intensityTreshold = 128; //treshold that must be exceeded by keypoint to become eligable
+        public static double curvatureTreshold = 6;
 
         public static int collectionRadiusPerOctave = (int)(3.0 * sigmaFactor);
         public static int orientationBins = 36;
@@ -31,14 +33,18 @@ namespace ML.Lib.Image
 
         public static Bitmap Perform(Bitmap input)
         {
-
+            Console.WriteLine("SIFT running...");
             //Convert input to grayscale
             Bitmap gray = BitmapUtils.ConvertToGrayscale(input);
             //resize picture to be 2x size to detect highest spacial frequencies
             gray = BitmapUtils.Resize(gray, 2.0);
+
             //Build scale pyramid
+            Console.WriteLine("SIFT: Building gaussian pyramid...");
             List<List<Bitmap>> scales = BuildGaussianPyramid(gray, octaves, blurLevels);
+            Console.WriteLine("SIFT: Building DoG octaves...");
             List<List<Bitmap>> dogs = CreateDoGs(scales);
+            Console.WriteLine("SIFT: Finding keypoint candidates...");
             List<Keypoint> keypointCandidates = FindKeypoints(dogs);
             Console.WriteLine("Keypoint Candidates found: " + keypointCandidates.Count);
             //Perform tests
@@ -46,7 +52,7 @@ namespace ML.Lib.Image
             EdgeTest(keypointCandidates);
 
             AssignKeypointParameters(keypointCandidates, scales);
-            AdjustForDoubleSize(keypointCandidates);
+            AdjustForDoubleSize(keypointCandidates); //Adjust coordinates to compensate for doubling image size in the begining
 
             Pen p = Pens.Blue;
             Bitmap result = new Bitmap(input);
@@ -74,6 +80,7 @@ namespace ML.Lib.Image
         {
 
             //First create DoG (Diffrence of Gaussians Image) by filtering input with two Gaussian Filters
+            //The blur levels are following: sigma*k^(2*octave_num + layer_num)
             //And then substructing results from each other
             GaussianFilter filter = new GaussianFilter(sigmaFactor, 5, 5);
             List<List<Bitmap>> octaves = new List<List<Bitmap>>();
@@ -81,19 +88,25 @@ namespace ML.Lib.Image
             grayBlured = filter.UseFilter(gray);
             Bitmap current = new Bitmap(gray);
             double scale = 1.0;
+            int currentSigmaMulPower = 0;
+
             for (int i = 0; i < numberOfOctaves; i++)
             {
                 //shrink to half a size
                 octaves.Add(new List<Bitmap>());
-                octaves[i].Add(current); //Add current, not blurred bitmap;
+                octaves[i].Add(current); //Add current, base level of this octave
                 for (int j = 0; j < numberOfBlurLevels - 1; j++)
                 {
                     //blur bitmap
+                    filter = new GaussianFilter(sigmaFactor * Math.Pow(sigmaMultiplier, currentSigmaMulPower + j), 5, 5);
                     current = filter.UseFilter(current);
                     octaves[i].Add(current);
                 }
                 scale *= scaleChange;
-                current = BitmapUtils.Resize(gray, scale);
+                currentSigmaMulPower += 2;
+                current = BitmapUtils.Resize(gray, scale); //resize last image in previous level and use it as a base in the next level
+                filter = new GaussianFilter(sigmaFactor * Math.Pow(sigmaMultiplier, currentSigmaMulPower), 5, 5);
+                current = filter.UseFilter(current);
             }
 
             return octaves;
@@ -102,7 +115,6 @@ namespace ML.Lib.Image
 
         public static List<List<Bitmap>> CreateDoGs(List<List<Bitmap>> octaves)
         {
-
             List<List<Bitmap>> result = new List<List<Bitmap>>();
             for (int i = 0; i < octaves.Count; i++)
             {
@@ -147,30 +159,51 @@ namespace ML.Lib.Image
 
         private static bool IsPixelEligable(List<Bitmap> currentOctave, int currentLevel, int currentX, int currentY)
         {
-            int val = currentOctave[currentLevel].GetPixel(currentX, currentY).R - 128;
+            return (CheckForMaximum(currentOctave,currentLevel, currentX, currentY) || CheckForMinimum(currentOctave,currentLevel, currentX, currentY));
+        }
 
 
-
-            if (val > 0)
+        private static bool CheckForMaximum(List<Bitmap> currentOctave, int currentLevel, int currentX, int currentY)
+        {
+            int val = currentOctave[currentLevel].GetPixel(currentX, currentY).R;
+            for (int i = -1; i < 2; i++) //scale axis
             {
-                for (int i = -1; i < 2; i++) //scale axis
-                    for (int j = -1; j < 2; j++) // x axis
-                        for (int k = -1; k < 2; k++) //y axis
-                            if (val < currentOctave[currentLevel].GetPixel(currentX + j, currentY + k).R - 128)
-                                return false;
-            }
-            else
-            {
-                for (int i = -1; i < 2; i++) //scale axis
-                    for (int j = -1; j < 2; j++) // x axis
-                        for (int k = -1; k < 2; k++) //y axis
-                            if (val > currentOctave[currentLevel].GetPixel(currentX + j, currentY + k).R - 128)
-                                return false;
+                for (int j = -1; j < 2; j++) // x axis
+                {
+                    for (int k = -1; k < 2; k++) //y axis
+                    {
+                        if (val < currentOctave[currentLevel + i].GetPixel(currentX + j, currentY + k).R)
+                        {
+                            return false;
+                        }
+
+                    }
+                }
             }
             return true;
         }
 
 
+        private static bool CheckForMinimum(List<Bitmap> currentOctave, int currentLevel, int currentX, int currentY)
+        {
+            int val = currentOctave[currentLevel].GetPixel(currentX, currentY).R;
+            for (int i = -1; i < 2; i++) //scale axis
+            {
+                for (int j = -1; j < 2; j++) // x axis
+                {
+                    for (int k = -1; k < 2; k++) //y axis
+                    {
+                        if (val > currentOctave[currentLevel + i].GetPixel(currentX + j, currentY + k).R)
+                        {
+                            return false;
+                        }
+
+                    }
+                }
+            }
+            return true;
+
+        }
 
 
         private static void CalculateSubPixelCoords(List<Keypoint> keypoints, List<List<Bitmap>> DoGs)
@@ -185,7 +218,8 @@ namespace ML.Lib.Image
             Console.WriteLine("ContrastTest: Running...");
             //Console.WriteLine(Math.Abs((int)k.underlayingBitmap.GetPixel((int)k.coords.x, (int)k.coords.y).R - 128));
 
-            keypoints.RemoveAll(k => CalculateContrastBlob(k, 1, 1) < intensityTreshold);
+            //keypoints.RemoveAll(k => CalculateContrastBlob(k, 1, 1) < intensityTreshold);
+            keypoints.RemoveAll(k => k.GetPixel().R < intensityTreshold);
             Console.WriteLine("ContrastTest: Excluded - " + (count - keypoints.Count) + " keypoints");
         }
 
@@ -255,7 +289,7 @@ namespace ML.Lib.Image
 
                 double check = (trace * trace) / determinant;
 
-              //  Console.WriteLine(check + " VS " + ((curvatureTreshold + 1.0) * (curvatureTreshold + 1.0) / curvatureTreshold).ToString());
+                //  Console.WriteLine(check + " VS " + ((curvatureTreshold + 1.0) * (curvatureTreshold + 1.0) / curvatureTreshold).ToString());
                 //If check is bigger then curvature then reject it
                 if (check >= (curvatureTreshold + 1.0) * (curvatureTreshold + 1.0) / curvatureTreshold)
                 {
@@ -410,7 +444,7 @@ namespace ML.Lib.Image
 
                 //Calculate scale
                 k.orientation = histogram.MaxAt();
-                k.scale = sigmaFactor * Math.Pow(scaleChange, k.octave);
+                k.scale = Math.Pow(1/scaleChange, k.octave);
                 //    Console.WriteLine(k.orientation);
             }
         }

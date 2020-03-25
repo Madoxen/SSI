@@ -166,8 +166,8 @@ namespace ML.Lib.Tests
                 }
 
                 BitmapUtils.DrawSIFTFeature(currentBitmap, p, new PointF((float)c.coords.x, (float)c.coords.y),
-                 new PointF((float)(c.coords.x + c.scale * 25 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
-                 (float)(c.coords.y + c.scale * 25 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
+                 new PointF((float)(c.coords.x + c.scale * 5 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
+                 (float)(c.coords.y + c.scale * 5 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
             }
         }
 

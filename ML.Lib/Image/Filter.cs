@@ -29,6 +29,8 @@ namespace ML.Lib.Image
         public Bitmap UseFilter(Bitmap input)
         {
             Bitmap map = new Bitmap(input.Width, input.Height);
+            int Length = filterData.Length / 2;
+
             for (int i = 0; i < input.Width; i++)
             {
                 for (int j = 0; j < input.Height; j++)
@@ -37,18 +39,20 @@ namespace ML.Lib.Image
                     double R = 0;
                     double B = 0;
                     double G = 0;
-                    for (int k = -(filterData.Length / 2); k < (filterData.Length / 2) + 1; k++)
+                    
+
+                    for (int k = -Length; k < Length + 1; k++)
                     {
-                        for (int g = -(filterData.Length / 2); g < (filterData.Length / 2) + 1; g++)
+                        for (int g = -Length; g < Length + 1; g++)
                         {
                             if (k + i < 0 || k + i >= input.Width || g + j < 0 || g + j >= input.Height)
                                 continue;
 
                             Color filterPixel = input.GetPixel(k + i, g + j);
-                            maskSum += filterData[k + (filterData.Length / 2)][g + (filterData.Length / 2)];
-                            R += filterPixel.R * filterData[k + (filterData.Length / 2)][g + (filterData.Length / 2)];
-                            B += filterPixel.B * filterData[k + (filterData.Length / 2)][g + (filterData.Length / 2)];
-                            G += filterPixel.G * filterData[k + (filterData.Length / 2)][g + (filterData.Length / 2)];
+                            maskSum += filterData[k + Length][g + (Length)];
+                            R += filterPixel.R * filterData[k + (Length)][g + (Length)];
+                            B += filterPixel.B * filterData[k + (Length)][g + (Length)];
+                            G += filterPixel.G * filterData[k + (Length)][g + (Length)];
                         }
                     }
 
