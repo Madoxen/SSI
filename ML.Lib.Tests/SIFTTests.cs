@@ -34,11 +34,11 @@ namespace ML.Lib.Tests
         [TestMethod]
         public void TestPyramidBuilding()
         {
-            Bitmap b = new Bitmap("../../../Resources/butterfly.png");
+            Bitmap b = new Bitmap("../../../Resources/butterfly.jpg");
             original = b;
             b = BitmapUtils.ConvertToGrayscale(b);
             b = BitmapUtils.Resize(b, 2.0); //resize image 2x times to include highest spacial frequencies
-            GaussianFilter filter=  new GaussianFilter(2, 5,5);
+            GaussianFilter filter = new GaussianFilter(2, 5, 5);
             b = filter.UseFilter(b);
             octaves = SIFT.BuildGaussianPyramid(b, 4, 5);
             int i = 0;
@@ -175,7 +175,7 @@ namespace ML.Lib.Tests
         [TestMethod]
         public void FinalizeResult()
         {
-            Pen p = Pens.Blue;
+            Pen p = Pens.Red;
             SIFT.AdjustForDoubleSize(candidates);
             foreach (SIFT.Keypoint c in candidates)
             {
@@ -183,12 +183,12 @@ namespace ML.Lib.Tests
                 //Transform coords
                 if (c.octave != 0)
                 {
-                    transformedCoords = new Point2D(c.coords.x * (Math.Pow(1/SIFT.scaleChange, c.octave)), c.coords.y * (Math.Pow(1/SIFT.scaleChange, c.octave)));
+                    transformedCoords = new Point2D(c.coords.x * (Math.Pow(1 / SIFT.scaleChange, c.octave)), c.coords.y * (Math.Pow(1 / SIFT.scaleChange, c.octave)));
                 }
 
                 BitmapUtils.DrawSIFTFeature(original, p, new PointF((float)transformedCoords.x, (float)transformedCoords.y),
-                 new PointF((float)(transformedCoords.x + c.scale * 25 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
-                 (float)(transformedCoords.y + c.scale * 25 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
+                 new PointF((float)(transformedCoords.x + c.scale * 10 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
+                 (float)(transformedCoords.y + c.scale * 10 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
 
             }
             original.Save("../../../TestGeneratedFiles/last.png");

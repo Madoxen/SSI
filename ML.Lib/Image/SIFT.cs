@@ -18,8 +18,8 @@ namespace ML.Lib.Image
 
         public static double scaleChange = 0.5; //Scale change between octaves
 
-        public static double intensityTreshold = 128; //treshold that must be exceeded by keypoint to become eligable
-        public static double curvatureTreshold = 6;
+        public static double intensityTreshold = 130; //treshold that must be exceeded by keypoint to become eligable
+        public static double curvatureTreshold = 10;
 
         public static int collectionRadiusPerOctave = (int)(3.0 * sigmaFactor);
         public static int orientationBins = 36;
@@ -54,7 +54,7 @@ namespace ML.Lib.Image
             AssignKeypointParameters(keypointCandidates, scales);
             AdjustForDoubleSize(keypointCandidates); //Adjust coordinates to compensate for doubling image size in the begining
 
-            Pen p = Pens.Blue;
+            Pen p = Pens.Red;
             Bitmap result = new Bitmap(input);
             Console.WriteLine("Keypoints left: " + keypointCandidates.Count);
             foreach (SIFT.Keypoint c in keypointCandidates)
@@ -67,8 +67,8 @@ namespace ML.Lib.Image
                 }
 
                 BitmapUtils.DrawSIFTFeature(result, p, new PointF((float)transformedCoords.x, (float)transformedCoords.y),
-                 new PointF((float)(transformedCoords.x + c.scale * 25 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
-                 (float)(transformedCoords.y + c.scale * 25 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
+                 new PointF((float)(transformedCoords.x + c.scale * 10 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
+                 (float)(transformedCoords.y + c.scale * 10 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
 
             }
             return result;
