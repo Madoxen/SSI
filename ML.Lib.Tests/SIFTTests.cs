@@ -34,10 +34,12 @@ namespace ML.Lib.Tests
         [TestMethod]
         public void TestPyramidBuilding()
         {
-            Bitmap b = new Bitmap("../../../Resources/cat3.jpg");
+            Bitmap b = new Bitmap("../../../Resources/butterfly.png");
             original = b;
             b = BitmapUtils.ConvertToGrayscale(b);
             b = BitmapUtils.Resize(b, 2.0); //resize image 2x times to include highest spacial frequencies
+            GaussianFilter filter=  new GaussianFilter(2, 5,5);
+            b = filter.UseFilter(b);
             octaves = SIFT.BuildGaussianPyramid(b, 4, 5);
             int i = 0;
             int j = 0;

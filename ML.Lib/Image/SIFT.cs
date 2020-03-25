@@ -16,7 +16,7 @@ namespace ML.Lib.Image
         public static double sigmaFactor = Math.Sqrt(2);
         public static double scaleChange = 0.5; //Scale change between octaves
 
-        public static double intensityTreshold = 2; //treshold that must be exceeded by keypoint to become eligable
+        public static double intensityTreshold = 0.03; //treshold that must be exceeded by keypoint to become eligable
         public static double curvatureTreshold = 10;
 
         public static int collectionRadiusPerOctave = (int)(3.0 * sigmaFactor);
@@ -31,7 +31,7 @@ namespace ML.Lib.Image
 
         public static Bitmap Perform(Bitmap input)
         {
-            List<PointInt2D> keypoints = new List<PointInt2D>();
+
             //Convert input to grayscale
             Bitmap gray = BitmapUtils.ConvertToGrayscale(input);
             //resize picture to be 2x size to detect highest spacial frequencies
@@ -40,21 +40,24 @@ namespace ML.Lib.Image
             List<List<Bitmap>> scales = BuildGaussianPyramid(gray, octaves, blurLevels);
             List<List<Bitmap>> dogs = CreateDoGs(scales);
             List<Keypoint> keypointCandidates = FindKeypoints(dogs);
+            Console.WriteLine("Keypoint Candidates found: " + keypointCandidates.Count);
             //Perform tests
             ContrastTest(keypointCandidates);
             EdgeTest(keypointCandidates);
-            AssignKeypointParameters(keypointCandidates,scales);
+
+            AssignKeypointParameters(keypointCandidates, scales);
             AdjustForDoubleSize(keypointCandidates);
 
             Pen p = Pens.Blue;
             Bitmap result = new Bitmap(input);
+            Console.WriteLine("Keypoints left: " + keypointCandidates.Count);
             foreach (SIFT.Keypoint c in keypointCandidates)
             {
                 Point2D transformedCoords = c.coords;
                 //Transform coords
                 if (c.octave != 0)
                 {
-                    transformedCoords = new Point2D(c.coords.x * (Math.Pow(1/SIFT.scaleChange, c.octave)), c.coords.y * (Math.Pow(1/SIFT.scaleChange, c.octave)));
+                    transformedCoords = new Point2D(c.coords.x * (Math.Pow(1 / SIFT.scaleChange, c.octave)), c.coords.y * (Math.Pow(1 / SIFT.scaleChange, c.octave)));
                 }
 
                 BitmapUtils.DrawSIFTFeature(result, p, new PointF((float)transformedCoords.x, (float)transformedCoords.y),
@@ -144,40 +147,25 @@ namespace ML.Lib.Image
 
         private static bool IsPixelEligable(List<Bitmap> currentOctave, int currentLevel, int currentX, int currentY)
         {
-            int previousSign = 0; //trinary variable 0 -> equals; 1 -> bigger then; -1 -> smaller then 
-            int currentSign = 0;
-            bool firstTime = false;
-            Color checkedPixel = currentOctave[currentLevel].GetPixel(currentX, currentY);
+            int val = currentOctave[currentLevel].GetPixel(currentX, currentY).R - 128;
 
-            for (int i = -1; i < 2; i++) //scale axis
+
+
+            if (val > 0)
             {
-                for (int j = -1; j < 2; j++) // x axis
-                {
-                    for (int k = -1; k < 2; k++) //y axis
-                    {
-                        Color currentPixel = currentOctave[currentLevel + i].GetPixel(currentX + j, currentY + k);
-
-                        if (checkedPixel.R == currentPixel.R && j != 0 && k != 0 && i != 0)
-                            return false;
-
-                        if (checkedPixel.R > currentPixel.R)
-                            currentSign = 1;
-                        if (checkedPixel.R < currentPixel.R)
-                            currentSign = -1;
-
-
-                        if (!firstTime)
-                        {
-                            previousSign = currentSign;
-                            firstTime = true;
-                            continue;
-                        }
-
-                        if (currentSign != previousSign)
-                            return false;
-
-                    }
-                }
+                for (int i = -1; i < 2; i++) //scale axis
+                    for (int j = -1; j < 2; j++) // x axis
+                        for (int k = -1; k < 2; k++) //y axis
+                            if (val < currentOctave[currentLevel].GetPixel(currentX + j, currentY + k).R - 128)
+                                return false;
+            }
+            else
+            {
+                for (int i = -1; i < 2; i++) //scale axis
+                    for (int j = -1; j < 2; j++) // x axis
+                        for (int k = -1; k < 2; k++) //y axis
+                            if (val > currentOctave[currentLevel].GetPixel(currentX + j, currentY + k).R - 128)
+                                return false;
             }
             return true;
         }
@@ -193,52 +181,94 @@ namespace ML.Lib.Image
         //Reject keypoint pixels that are below treshold intensity
         public static void ContrastTest(List<Keypoint> keypoints)
         {
+            int count = keypoints.Count;
+            Console.WriteLine("ContrastTest: Running...");
             //Console.WriteLine(Math.Abs((int)k.underlayingBitmap.GetPixel((int)k.coords.x, (int)k.coords.y).R - 128));
-            keypoints.RemoveAll(k =>k.underlayingBitmap.GetPixel((int)k.coords.x, (int)k.coords.y).R  < intensityTreshold);
+
+            keypoints.RemoveAll(k => CalculateContrastBlob(k, 1, 1) < intensityTreshold);
+            Console.WriteLine("ContrastTest: Excluded - " + (count - keypoints.Count) + " keypoints");
         }
 
+
+        //Calculates contrast base around the area around keypoint
+        private static double CalculateContrastBlob(Keypoint keypoint, int range, double falloff)
+        {
+            double pixelVal = 0;
+            for (int i = -range; i < range + 1; i++)
+            {
+                for (int j = -range; j < range + 1; j++)
+                {
+                    if (i + keypoint.intCoords.x < 0 || i + keypoint.intCoords.x >= keypoint.underlayingBitmap.Width ||
+                    j + keypoint.intCoords.y < 0 || j + keypoint.intCoords.y >= keypoint.underlayingBitmap.Height)
+                        continue;
+
+                    Color pixel = keypoint.underlayingBitmap.GetPixel(i + keypoint.intCoords.x, j + keypoint.intCoords.y);
+                    pixelVal += pixel.R / (Math.Abs(range + 1) * falloff); //further pixels are worth less
+                }
+            }
+            pixelVal /= range * range;
+            //Console.WriteLine(pixelVal);
+            return pixelVal;
+        }
 
 
         //Reject keypoints that are on edge
         public static void EdgeTest(List<Keypoint> keypoints)
         {
-            double[][] hessian = new double[2][];
-            hessian[0] = new double[2];
-            hessian[1] = new double[2];
+            Console.WriteLine("EdgeTest running...");
+            int count = keypoints.Count;
 
             for (int i = 0; i < keypoints.Count; i++)
             {
                 Keypoint k = keypoints[i];
+                PointInt2D intCoords = k.intCoords;
 
                 //dxx
-                double dxx = (k.underlayingBitmap.GetPixel(k.intCoords.x + 1, k.intCoords.y).R -
-                2 * k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y).R
-                + k.underlayingBitmap.GetPixel(k.intCoords.x - 1, k.intCoords.y).R) / 4.0;
+                double dxx = (k.underlayingBitmap.GetPixel(intCoords.x + 1, intCoords.y).R -
+                2 * k.underlayingBitmap.GetPixel(intCoords.x, intCoords.y).R
+                + k.underlayingBitmap.GetPixel(intCoords.x - 1, intCoords.y).R);
 
                 //dyy
-                double dyy = (k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y + 1).R
-                - 2 * k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y).R
-                + k.underlayingBitmap.GetPixel(k.intCoords.x, k.intCoords.y - 1).R) / 4.0;
+                double dyy = (k.underlayingBitmap.GetPixel(intCoords.x, intCoords.y + 1).R
+                - 2 * k.underlayingBitmap.GetPixel(intCoords.x, intCoords.y).R
+                + k.underlayingBitmap.GetPixel(intCoords.x, intCoords.y - 1).R);
 
 
                 //dxy also dyx from derivative theorem
-                double dxy = (k.underlayingBitmap.GetPixel(k.intCoords.x + 1, k.intCoords.y + 1).R -
-                k.underlayingBitmap.GetPixel(k.intCoords.x - 1, k.intCoords.y + 1).R -
-                k.underlayingBitmap.GetPixel(k.intCoords.x + 1, k.intCoords.y - 1).R +
-                k.underlayingBitmap.GetPixel(k.intCoords.x - 1, k.intCoords.y - 1).R) / 4.0;
+                double dxy = (k.underlayingBitmap.GetPixel(intCoords.x + 1, intCoords.y + 1).R -
+                k.underlayingBitmap.GetPixel(intCoords.x - 1, intCoords.y + 1).R -
+                k.underlayingBitmap.GetPixel(intCoords.x + 1, intCoords.y - 1).R +
+                k.underlayingBitmap.GetPixel(intCoords.x - 1, intCoords.y - 1).R) / 4.0;
 
 
                 double trace = dxx + dyy;
                 double determinant = dxx * dxy - dyy * dxy;
+
+
+                /* negative determinant -> curvatures have different signs; reject feature */
+                if (determinant <= 0)
+                {
+                    keypoints.Remove(k);
+                    i--;
+                    continue;
+                }
+
                 double check = (trace * trace) / determinant;
+
+              //  Console.WriteLine(check + " VS " + ((curvatureTreshold + 1.0) * (curvatureTreshold + 1.0) / curvatureTreshold).ToString());
                 //If check is bigger then curvature then reject it
                 if (check >= (curvatureTreshold + 1.0) * (curvatureTreshold + 1.0) / curvatureTreshold)
+                {
                     keypoints.Remove(k);
+                    i--;
+                }
+
             }
-
-
-
+            Console.WriteLine("EdgeTest: Excluded - " + (count - keypoints.Count) + " keypoints");
         }
+
+
+
 
 
 
@@ -315,6 +345,34 @@ namespace ML.Lib.Image
         }
 
 
+        private double[][] Invert33Matrix(double[][] m)
+        {
+
+            double[][] result = new double[3][];
+            for (int i = 0; i < 3; i++)
+                result[i] = new double[3];
+
+            // computes the inverse of a matrix m
+            double det = m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2]) -
+                        m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0]) +
+                        m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]);
+
+            double invdet = 1 / det;
+
+
+            result[0][0] = (m[1][1] * m[2][2] - m[2][1] * m[1][2]) * invdet;
+            result[0][1] = (m[0][2] * m[2][1] - m[0][1] * m[2][2]) * invdet;
+            result[0][2] = (m[0][1] * m[1][2] - m[0][2] * m[1][1]) * invdet;
+            result[1][0] = (m[1][2] * m[2][0] - m[1][0] * m[2][2]) * invdet;
+            result[1][1] = (m[0][0] * m[2][2] - m[0][2] * m[2][0]) * invdet;
+            result[1][2] = (m[1][0] * m[0][2] - m[0][0] * m[1][2]) * invdet;
+            result[2][0] = (m[1][0] * m[2][1] - m[2][0] * m[1][1]) * invdet;
+            result[2][1] = (m[2][0] * m[0][1] - m[0][0] * m[2][1]) * invdet;
+            result[2][2] = (m[0][0] * m[1][1] - m[1][0] * m[0][1]) * invdet;
+
+            return result;
+        }
+
 
         //Calculates and assings keypoint magnitude and orientation
         public static void AssignKeypointParameters(List<Keypoint> keypoints, List<List<Bitmap>> initialSmooth)
@@ -353,7 +411,7 @@ namespace ML.Lib.Image
                 //Calculate scale
                 k.orientation = histogram.MaxAt();
                 k.scale = sigmaFactor * Math.Pow(scaleChange, k.octave);
-            //    Console.WriteLine(k.orientation);
+                //    Console.WriteLine(k.orientation);
             }
         }
 
@@ -361,9 +419,9 @@ namespace ML.Lib.Image
 
         public static void AdjustForDoubleSize(List<Keypoint> keypoints)
         {
-            foreach(Keypoint k in keypoints)
+            foreach (Keypoint k in keypoints)
             {
-                k.coords = new Point2D(k.coords.x/2.0, k.coords.y/2.0);
+                k.coords = new Point2D(k.coords.x / 2.0, k.coords.y / 2.0);
                 k.scale /= 2.0;
             }
 
