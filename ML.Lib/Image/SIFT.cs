@@ -16,7 +16,7 @@ namespace ML.Lib.Image
         public static double sigmaFactor = Math.Sqrt(2);
         public static double scaleChange = 0.5; //Scale change between octaves
 
-        public static double intensityTreshold = 0.3; //treshold that must be exceeded by keypoint to become eligable
+        public static double intensityTreshold = 2; //treshold that must be exceeded by keypoint to become eligable
         public static double curvatureTreshold = 10;
 
         public static int collectionRadiusPerOctave = (int)(3.0 * sigmaFactor);
@@ -47,6 +47,7 @@ namespace ML.Lib.Image
             AdjustForDoubleSize(keypointCandidates);
 
             Pen p = Pens.Blue;
+            Bitmap result = new Bitmap(input);
             foreach (SIFT.Keypoint c in keypointCandidates)
             {
                 Point2D transformedCoords = c.coords;
@@ -56,12 +57,12 @@ namespace ML.Lib.Image
                     transformedCoords = new Point2D(c.coords.x * (Math.Pow(1/SIFT.scaleChange, c.octave)), c.coords.y * (Math.Pow(1/SIFT.scaleChange, c.octave)));
                 }
 
-                BitmapUtils.DrawSIFTFeature(gray, p, new PointF((float)transformedCoords.x, (float)transformedCoords.y),
+                BitmapUtils.DrawSIFTFeature(result, p, new PointF((float)transformedCoords.x, (float)transformedCoords.y),
                  new PointF((float)(transformedCoords.x + c.scale * 25 * Math.Cos(c.orientation * 10 * (Math.PI / 180))),
                  (float)(transformedCoords.y + c.scale * 25 * Math.Sin(c.orientation * 10 * (Math.PI / 180)))));
 
             }
-            return gray;
+            return result;
         }
 
 
@@ -192,12 +193,8 @@ namespace ML.Lib.Image
         //Reject keypoint pixels that are below treshold intensity
         public static void ContrastTest(List<Keypoint> keypoints)
         {
-            for (int i = 0; i < keypoints.Count; i++)
-            {
-                Keypoint k = keypoints[i];
-                if (k.underlayingBitmap.GetPixel((int)k.coords.x, (int)k.coords.y).GetBrightness() < intensityTreshold)
-                    keypoints.Remove(k);
-            }
+            //Console.WriteLine(Math.Abs((int)k.underlayingBitmap.GetPixel((int)k.coords.x, (int)k.coords.y).R - 128));
+            keypoints.RemoveAll(k =>k.underlayingBitmap.GetPixel((int)k.coords.x, (int)k.coords.y).R  < intensityTreshold);
         }
 
 
@@ -356,7 +353,7 @@ namespace ML.Lib.Image
                 //Calculate scale
                 k.orientation = histogram.MaxAt();
                 k.scale = sigmaFactor * Math.Pow(scaleChange, k.octave);
-                Console.WriteLine(k.orientation);
+            //    Console.WriteLine(k.orientation);
             }
         }
 
