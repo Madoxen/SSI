@@ -19,7 +19,7 @@ namespace ML.Lib.Image
         public static double scaleChange = 0.5; //Scale change between octaves
 
         public static double intensityTreshold = 130; //treshold that must be exceeded by keypoint to become eligable
-        public static double curvatureTreshold = 10;
+        public static double curvatureTreshold = 14;
 
         public static int collectionRadiusPerOctave = (int)(3.0 * sigmaFactor);
         public static int orientationBins = 36;
