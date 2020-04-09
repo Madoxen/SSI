@@ -11,6 +11,7 @@ using System.Collections.Generic;
 namespace ML.Lib.Tests
 {
     [TestClass]
+    [Ignore]
     public class SIFTTests
     {
 

@@ -7,12 +7,6 @@ namespace ML.Lib.Fuzzy
             get; set;
         }
 
-        int InputIndex
-        {
-            get;
-            set;
-        }
-
         double Fuzzify(double x);
         
     }

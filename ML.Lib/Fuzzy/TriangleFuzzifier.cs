@@ -5,18 +5,16 @@ namespace ML.Lib.Fuzzy
     public class TriangleFuzzifier : IFuzzifier
     {
         public string Label { get; set; }
-        public int InputIndex { get; set; }
 
         private double a, b, c;
 
 
-        public TriangleFuzzifier(double a, double b, double c, string Label, int InputIndex)
+        public TriangleFuzzifier(double a, double b, double c, string Label)
         {
             this.a = a;
             this.b = b;
             this.c = c;
             this.Label = Label;
-            this.InputIndex = InputIndex;
         }
 
         public double Fuzzify(double x)

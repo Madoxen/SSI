@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="f8f75d39-d45d-43ec-83f8-2174faedd691" name="@madoX 2020-04-09 18:49:00" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2020-04-09T18:49:00.7551576+02:00" queuing="2020-04-09T18:49:00.7551578+02:00" start="2020-04-09T18:48:59.9512733+02:00" finish="2020-04-09T18:49:00.8082636+02:00" />
+  <TestSettings name="default" id="7ebddef4-0263-4e91-b1ed-96744724571d">
+    <Deployment runDeploymentRoot="_madoX_2020-04-09_18_49_00" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="f5dbd597-fbbc-4fa5-a3c9-1c6234ffa541" testId="2143b7c7-6299-6b01-b162-6d724aa767f8" testName="TestFindKeypoints" computerName="madoX" startTime="2020-04-09T18:49:00.6348113+02:00" endTime="2020-04-09T18:49:00.6348670+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f5dbd597-fbbc-4fa5-a3c9-1c6234ffa541">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="de6c5617-1f52-45cc-b3b7-9ed86ddc2d7d" testId="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539" testName="TestPyramidBuilding" computerName="madoX" startTime="2020-04-09T18:49:00.6346475+02:00" endTime="2020-04-09T18:49:00.6347212+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de6c5617-1f52-45cc-b3b7-9ed86ddc2d7d">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cb7b7d84-43cf-4825-98f3-e70711c08c5f" testId="66aaeb20-50ad-9b68-0121-0ae2de24b645" testName="GaussianFilterTest" computerName="madoX" duration="00:00:00.0369853" startTime="2020-04-09T18:49:00.5966624+02:00" endTime="2020-04-09T18:49:00.6338542+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb7b7d84-43cf-4825-98f3-e70711c08c5f" />
+    <UnitTestResult executionId="a47289e7-674d-4aa0-aa33-6b6577537542" testId="0d712b84-ad40-a7e7-163a-6d1905e2c215" testName="FinalizeResult" computerName="madoX" startTime="2020-04-09T18:49:00.6919737+02:00" endTime="2020-04-09T18:49:00.6920667+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a47289e7-674d-4aa0-aa33-6b6577537542">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9104a9a2-eb2f-4a61-9a19-8562ba340dcb" testId="6141bb7b-a41a-f909-b336-d09d324b86c1" testName="TestAssignParameters" computerName="madoX" startTime="2020-04-09T18:49:00.6350676+02:00" endTime="2020-04-09T18:49:00.6351320+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9104a9a2-eb2f-4a61-9a19-8562ba340dcb">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="40241027-bd5a-4615-aa2c-49befbbefbc3" testId="b44e3f1d-d699-2be2-1c29-48f364c32676" testName="SugenoTest" computerName="madoX" duration="00:00:00.0104681" startTime="2020-04-09T18:49:00.6920874+02:00" endTime="2020-04-09T18:49:00.7027772+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="40241027-bd5a-4615-aa2c-49befbbefbc3">
+      <Output>
+        <StdOut>NaN
+NaN
+0.3
+NaN
+NaN
+NaN
+NaN</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6c625f6d-a839-4398-9526-7bdb09a010bb" testId="f506b79a-2f44-5be9-d26c-b2a5166b61ba" testName="Test" computerName="madoX" startTime="2020-04-09T18:49:00.6339122+02:00" endTime="2020-04-09T18:49:00.6346252+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6c625f6d-a839-4398-9526-7bdb09a010bb">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="02ae7cb9-fdcd-4051-95d2-a5dd5588620a" testId="cbe2e6f9-6de2-9e73-a532-7b5783051631" testName="TestContrastTest" computerName="madoX" startTime="2020-04-09T18:49:00.6348795+02:00" endTime="2020-04-09T18:49:00.6349332+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="02ae7cb9-fdcd-4051-95d2-a5dd5588620a">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bc9b79b9-5636-4025-bf0e-c5a2f5a96bed" testId="a17d96d6-14da-4cdf-438f-09cf1bf34161" testName="GaussianFilterCtorTest" computerName="madoX" duration="00:00:00.0047707" startTime="2020-04-09T18:49:00.5510095+02:00" endTime="2020-04-09T18:49:00.5886009+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bc9b79b9-5636-4025-bf0e-c5a2f5a96bed" />
+    <UnitTestResult executionId="ab548896-a075-45aa-ab06-b7ce36b82f23" testId="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d" testName="TestEdgeTest" computerName="madoX" startTime="2020-04-09T18:49:00.6349457+02:00" endTime="2020-04-09T18:49:00.6350419+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab548896-a075-45aa-ab06-b7ce36b82f23">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fbf258c8-fa3d-4ede-92e6-6b9f416a26eb" testId="ae8b806e-91cd-158d-cf84-39ff4ea33259" testName="TestDoGCreation" computerName="madoX" startTime="2020-04-09T18:49:00.6347357+02:00" endTime="2020-04-09T18:49:00.6347920+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fbf258c8-fa3d-4ede-92e6-6b9f416a26eb">
+      <Output></Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Test" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="f506b79a-2f44-5be9-d26c-b2a5166b61ba">
+      <Execution id="6c625f6d-a839-4398-9526-7bdb09a010bb" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="Test" />
+    </UnitTest>
+    <UnitTest name="TestPyramidBuilding" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539">
+      <Execution id="de6c5617-1f52-45cc-b3b7-9ed86ddc2d7d" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestPyramidBuilding" />
+    </UnitTest>
+    <UnitTest name="TestAssignParameters" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="6141bb7b-a41a-f909-b336-d09d324b86c1">
+      <Execution id="9104a9a2-eb2f-4a61-9a19-8562ba340dcb" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestAssignParameters" />
+    </UnitTest>
+    <UnitTest name="TestContrastTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="cbe2e6f9-6de2-9e73-a532-7b5783051631">
+      <Execution id="02ae7cb9-fdcd-4051-95d2-a5dd5588620a" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestContrastTest" />
+    </UnitTest>
+    <UnitTest name="SugenoTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="b44e3f1d-d699-2be2-1c29-48f364c32676">
+      <Execution id="40241027-bd5a-4615-aa2c-49befbbefbc3" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SugenoTests" name="SugenoTest" />
+    </UnitTest>
+    <UnitTest name="TestEdgeTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d">
+      <Execution id="ab548896-a075-45aa-ab06-b7ce36b82f23" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestEdgeTest" />
+    </UnitTest>
+    <UnitTest name="GaussianFilterCtorTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="a17d96d6-14da-4cdf-438f-09cf1bf34161">
+      <Execution id="bc9b79b9-5636-4025-bf0e-c5a2f5a96bed" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.FilterTests" name="GaussianFilterCtorTest" />
+    </UnitTest>
+    <UnitTest name="TestFindKeypoints" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="2143b7c7-6299-6b01-b162-6d724aa767f8">
+      <Execution id="f5dbd597-fbbc-4fa5-a3c9-1c6234ffa541" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestFindKeypoints" />
+    </UnitTest>
+    <UnitTest name="GaussianFilterTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="66aaeb20-50ad-9b68-0121-0ae2de24b645">
+      <Execution id="cb7b7d84-43cf-4825-98f3-e70711c08c5f" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.FilterTests" name="GaussianFilterTest" />
+    </UnitTest>
+    <UnitTest name="FinalizeResult" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="0d712b84-ad40-a7e7-163a-6d1905e2c215">
+      <Execution id="a47289e7-674d-4aa0-aa33-6b6577537542" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="FinalizeResult" />
+    </UnitTest>
+    <UnitTest name="TestDoGCreation" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="ae8b806e-91cd-158d-cf84-39ff4ea33259">
+      <Execution id="fbf258c8-fa3d-4ede-92e6-6b9f416a26eb" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestDoGCreation" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="2143b7c7-6299-6b01-b162-6d724aa767f8" executionId="f5dbd597-fbbc-4fa5-a3c9-1c6234ffa541" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539" executionId="de6c5617-1f52-45cc-b3b7-9ed86ddc2d7d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66aaeb20-50ad-9b68-0121-0ae2de24b645" executionId="cb7b7d84-43cf-4825-98f3-e70711c08c5f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0d712b84-ad40-a7e7-163a-6d1905e2c215" executionId="a47289e7-674d-4aa0-aa33-6b6577537542" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6141bb7b-a41a-f909-b336-d09d324b86c1" executionId="9104a9a2-eb2f-4a61-9a19-8562ba340dcb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b44e3f1d-d699-2be2-1c29-48f364c32676" executionId="40241027-bd5a-4615-aa2c-49befbbefbc3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f506b79a-2f44-5be9-d26c-b2a5166b61ba" executionId="6c625f6d-a839-4398-9526-7bdb09a010bb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbe2e6f9-6de2-9e73-a532-7b5783051631" executionId="02ae7cb9-fdcd-4051-95d2-a5dd5588620a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a17d96d6-14da-4cdf-438f-09cf1bf34161" executionId="bc9b79b9-5636-4025-bf0e-c5a2f5a96bed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d" executionId="ab548896-a075-45aa-ab06-b7ce36b82f23" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae8b806e-91cd-158d-cf84-39ff4ea33259" executionId="fbf258c8-fa3d-4ede-92e6-6b9f416a26eb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="11" executed="3" passed="3" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Test 'Test' was skipped in the test run.
+Test 'TestPyramidBuilding' was skipped in the test run.
+Test 'TestDoGCreation' was skipped in the test run.
+Test 'TestFindKeypoints' was skipped in the test run.
+Test 'TestContrastTest' was skipped in the test run.
+Test 'TestEdgeTest' was skipped in the test run.
+Test 'TestAssignParameters' was skipped in the test run.
+Test 'FinalizeResult' was skipped in the test run.
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

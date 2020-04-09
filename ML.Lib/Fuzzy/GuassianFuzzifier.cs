@@ -7,17 +7,16 @@ namespace ML.Lib.Fuzzy
     {
         public string Label { get; set; }
 
-        public int InputIndex { get; set; }
 
         private double m, sigma;
 
 
-        public GaussianFuzzifier(double m, double sigma, string Label, int InputIndex)
+        public GaussianFuzzifier(double m, double sigma, string Label)
         {
             this.m = m;
             this.sigma = sigma;
             this.Label = Label;
-            this.InputIndex = InputIndex;
+
         }
 
         public double Fuzzify(double x)

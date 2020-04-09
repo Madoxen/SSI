@@ -4,3 +4,5 @@
 
 .vscode
 .vs
+
+#Ignore ML.Lib Test results

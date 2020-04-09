@@ -7,19 +7,17 @@ namespace ML.Lib.Fuzzy
 
         public string Label { get; set; }
 
-        public int InputIndex { get; set; }
 
         private double a, b, c, d;
 
 
-        public TrapezoidFuzzifier(double a, double b, double c, double d, string Label, int InputIndex)
+        public TrapezoidFuzzifier(double a, double b, double c, double d, string Label)
         {
             this.a = a;
             this.b = b;
             this.c = c;
             this.d = d;
             this.Label = Label;
-            this.InputIndex = InputIndex;
         }
 
         public double Fuzzify(double x)
