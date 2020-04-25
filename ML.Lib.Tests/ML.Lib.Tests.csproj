@@ -16,6 +16,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ML.Lib\ML.Lib.csproj" />
+
+  <None Update="Resources\**" CopyToOutputDirectory="PreserveNewest" />
+
   </ItemGroup>
+
+
 
 </Project>

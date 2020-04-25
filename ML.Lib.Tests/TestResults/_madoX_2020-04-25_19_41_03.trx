@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="7c6a8122-ae8c-41ca-9597-fbdffbe382a5" name="@madoX 2020-04-25 19:41:03" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2020-04-25T19:41:03.4089015+02:00" queuing="2020-04-25T19:41:03.4089016+02:00" start="2020-04-25T19:41:02.5332324+02:00" finish="2020-04-25T19:41:03.4629171+02:00" />
+  <TestSettings name="default" id="63bdd8b7-b652-4c89-8fa4-c0f6f4a15be5">
+    <Deployment runDeploymentRoot="_madoX_2020-04-25_19_41_03" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="b490e050-e12d-4094-8e79-c8b1b46b184f" testId="f506b79a-2f44-5be9-d26c-b2a5166b61ba" testName="Test" computerName="madoX" startTime="2020-04-25T19:41:03.2852266+02:00" endTime="2020-04-25T19:41:03.2853941+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b490e050-e12d-4094-8e79-c8b1b46b184f">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d4259f8a-fe34-48f1-8fa7-dc916f072db9" testId="66aaeb20-50ad-9b68-0121-0ae2de24b645" testName="GaussianFilterTest" computerName="madoX" startTime="2020-04-25T19:41:03.2851494+02:00" endTime="2020-04-25T19:41:03.2852130+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d4259f8a-fe34-48f1-8fa7-dc916f072db9">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="397f39a7-1082-4565-aa7a-6135f6816078" testId="a5f2be9a-ecf7-4511-2438-b89033095905" testName="ConstructorTest" computerName="madoX" duration="00:00:00.0075421" startTime="2020-04-25T19:41:03.1387502+02:00" endTime="2020-04-25T19:41:03.1805369+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="397f39a7-1082-4565-aa7a-6135f6816078" />
+    <UnitTestResult executionId="b42c8df6-7ed8-4912-8c16-56600f32c419" testId="ae8b806e-91cd-158d-cf84-39ff4ea33259" testName="TestDoGCreation" computerName="madoX" startTime="2020-04-25T19:41:03.2854668+02:00" endTime="2020-04-25T19:41:03.2855103+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b42c8df6-7ed8-4912-8c16-56600f32c419">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5bd176e3-3749-45c2-9ec8-e1598cfc2d08" testId="77b6b6a1-28ac-45e8-9314-cbdf61ad6c72" testName="TestMassCalculate" computerName="madoX" duration="00:00:00.0024069" startTime="2020-04-25T19:41:03.1921893+02:00" endTime="2020-04-25T19:41:03.1947031+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5bd176e3-3749-45c2-9ec8-e1598cfc2d08" />
+    <UnitTestResult executionId="1d2b5f6e-5456-47c1-977d-115f989a59ee" testId="8d37b67b-c1cf-3819-ac1d-76bbe0d1bff9" testName="TestTrain" computerName="madoX" duration="00:00:00.0895879" startTime="2020-04-25T19:41:03.1947232+02:00" endTime="2020-04-25T19:41:03.2844191+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1d2b5f6e-5456-47c1-977d-115f989a59ee">
+      <Output>
+        <StdOut>Sample #0|setosa prob.: 0.00017242381384852804|versicolor prob.: 0.999914307707258|virginica prob.:0.9999144027891864
+Sample #1|setosa prob.: 0.00017242927925652468|versicolor prob.: 0.9999143047776478|virginica prob.:0.9999143998575976
+Sample #2|setosa prob.: 0.0001724304211203044|versicolor prob.: 0.9999143041655761|virginica prob.:0.9999143992451125
+Sample #3|setosa prob.: 0.0001724304211203044|versicolor prob.: 0.9999143041655761|virginica prob.:0.9999143992451125
+Sample #4|setosa prob.: 0.00017242381384852804|versicolor prob.: 0.999914307707258|virginica prob.:0.9999144027891864
+Sample #5|setosa prob.: 0.00017242004666826493|versicolor prob.: 0.9999143097265667|virginica prob.:0.9999144048098592
+Sample #6|setosa prob.: 0.00017242731122324003|versicolor prob.: 0.9999143058325691|virginica prob.:0.9999144009132314
+Sample #7|setosa prob.: 0.00017242438083143194|versicolor prob.: 0.9999143074033399|virginica prob.:0.9999144024850631
+Sample #8|setosa prob.: 0.00017243820571215311|versicolor prob.: 0.9999142999928035|virginica prob.:0.9999143950695217
+Sample #9|setosa prob.: 0.0001724282460726271|versicolor prob.: 0.9999143053314635|virginica prob.:0.9999144004117873
+Sample #10|setosa prob.: 0.00017242138152001216|versicolor prob.: 0.9999143090110512|virginica prob.:0.9999144040938603
+Sample #11|setosa prob.: 0.00017242500745016587|versicolor prob.: 0.9999143070674551|virginica prob.:0.9999144021489513
+Sample #12|setosa prob.: 0.00017243168309813257|versicolor prob.: 0.9999143034891195|virginica prob.:0.9999143985681991
+Sample #13|setosa prob.: 0.00017244793751750715|versicolor prob.: 0.9999142947762444|virginica prob.:0.9999143898494401
+Sample #14|setosa prob.: 0.00017242040615117026|versicolor prob.: 0.9999143095338744|virginica prob.:0.9999144046170366
+Sample #15|setosa prob.: 0.00017241931409767324|versicolor prob.: 0.9999143101192435|virginica prob.:0.9999144052028013
+Sample #16|setosa prob.: 0.00017242084522726273|versicolor prob.: 0.9999143092985181|virginica prob.:0.9999144043815213
+Sample #17|setosa prob.: 0.00017242330082541704|versicolor prob.: 0.9999143079822523|virginica prob.:0.9999144030643665
+Sample #18|setosa prob.: 0.00017241989215715|versicolor prob.: 0.9999143098093888|virginica prob.:0.9999144048927371
+Sample #19|setosa prob.: 0.0001724216926746465|versicolor prob.: 0.9999143088442641|virginica prob.:0.9999144039269604
+Sample #20|setosa prob.: 0.0001724216926746465|versicolor prob.: 0.9999143088442641|virginica prob.:0.9999144039269604
+Sample #21|setosa prob.: 0.0001724216926746465|versicolor prob.: 0.9999143088442641|virginica prob.:0.9999144039269604
+Sample #22|setosa prob.: 0.0001724304211203044|versicolor prob.: 0.9999143041655761|virginica prob.:0.9999143992451125
+Sample #23|setosa prob.: 0.00017242203655542154|versicolor prob.: 0.9999143086599347|virginica prob.:0.9999144037425067
+Sample #24|setosa prob.: 0.00017242330082541704|versicolor prob.: 0.9999143079822523|virginica prob.:0.9999144030643665
+Sample #25|setosa prob.: 0.00017242646534804836|versicolor prob.: 0.9999143062859818|virginica prob.:0.9999144013669502
+Sample #26|setosa prob.: 0.00017242283662637791|versicolor prob.: 0.9999143082310753|virginica prob.:0.9999144033133578
+Sample #27|setosa prob.: 0.00017242283662637791|versicolor prob.: 0.9999143082310753|virginica prob.:0.9999144033133578
+Sample #28|setosa prob.: 0.00017242381384852804|versicolor prob.: 0.999914307707258|virginica prob.:0.9999144027891864
+Sample #29|setosa prob.: 0.00017242731122324003|versicolor prob.: 0.9999143058325691|virginica prob.:0.9999144009132314
+Sample #30|setosa prob.: 0.00017242731122324003|versicolor prob.: 0.9999143058325691|virginica prob.:0.9999144009132314
+Sample #31|setosa prob.: 0.0001724216926746465|versicolor prob.: 0.9999143088442641|virginica prob.:0.9999144039269604
+Sample #32|setosa prob.: 0.00017242109997693173|versicolor prob.: 0.9999143091619657|virginica prob.:0.9999144042448768
+Sample #33|setosa prob.: 0.00017242021742988048|versicolor prob.: 0.9999143096350341|virginica prob.:0.9999144047182645
+Sample #34|setosa prob.: 0.0001724282460726271|versicolor prob.: 0.9999143053314635|virginica prob.:0.9999144004117873
+Sample #35|setosa prob.: 0.0001724282460726271|versicolor prob.: 0.9999143053314635|virginica prob.:0.9999144004117873
+Sample #36|setosa prob.: 0.00017242241660455707|versicolor prob.: 0.9999143084562184|virginica prob.:0.9999144035386527
+Sample #37|setosa prob.: 0.0001724282460726271|versicolor prob.: 0.9999143053314635|virginica prob.:0.9999144004117873
+Sample #38|setosa prob.: 0.00017243820571215311|versicolor prob.: 0.9999142999928035|virginica prob.:0.9999143950695217
+Sample #39|setosa prob.: 0.00017242381384852804|versicolor prob.: 0.999914307707258|virginica prob.:0.9999144027891864
+Sample #40|setosa prob.: 0.00017242438083143194|versicolor prob.: 0.9999143074033399|virginica prob.:0.9999144024850631
+Sample #41|setosa prob.: 0.00017245104235683175|versicolor prob.: 0.999914293111946|virginica prob.:0.999914388184018
+Sample #42|setosa prob.: 0.00017243461927673664|versicolor prob.: 0.9999143019152414|virginica prob.:0.9999143969932579
+Sample #43|setosa prob.: 0.0001724216926746465|versicolor prob.: 0.9999143088442641|virginica prob.:0.9999144039269604
+Sample #44|setosa prob.: 0.00017242040615117026|versicolor prob.: 0.9999143095338744|virginica prob.:0.9999144046170366
+Sample #45|setosa prob.: 0.00017242927925652468|versicolor prob.: 0.9999143047776478|virginica prob.:0.9999143998575976
+Sample #46|setosa prob.: 0.0001724216926746465|versicolor prob.: 0.9999143088442641|virginica prob.:0.9999144039269604
+Sample #47|setosa prob.: 0.0001724304211203044|versicolor prob.: 0.9999143041655761|virginica prob.:0.9999143992451125
+Sample #48|setosa prob.: 0.0001724216926746465|versicolor prob.: 0.9999143088442641|virginica prob.:0.9999144039269604
+Sample #49|setosa prob.: 0.00017242569997795077|versicolor prob.: 0.9999143066962413|virginica prob.:0.9999144017774868
+Sample #50|setosa prob.: 0.000172418435122809|versicolor prob.: 0.9999143105903967|virginica prob.:0.9999144056742727
+Sample #51|setosa prob.: 0.00017241844737947694|versicolor prob.: 0.9999143105838268|virginica prob.:0.9999144056676984
+Sample #52|setosa prob.: 0.00017241843397225614|versicolor prob.: 0.9999143105910134|virginica prob.:0.9999144056748899
+Sample #53|setosa prob.: 0.00017241871964092728|versicolor prob.: 0.9999143104378877|virginica prob.:0.9999144055216607
+Sample #54|setosa prob.: 0.00017241845276998405|versicolor prob.: 0.9999143105809374|virginica prob.:0.9999144056648069
+Sample #55|setosa prob.: 0.0001724185123690434|versicolor prob.: 0.9999143105489907|virginica prob.:0.9999144056328387
+Sample #56|setosa prob.: 0.00017241844106916226|versicolor prob.: 0.9999143105872094|virginica prob.:0.9999144056710831
+Sample #57|setosa prob.: 0.00017241975235002648|versicolor prob.: 0.9999143098843291|virginica prob.:0.9999144049677278
+Sample #58|setosa prob.: 0.00017241845276998405|versicolor prob.: 0.9999143105809374|virginica prob.:0.9999144056648069
+Sample #59|setosa prob.: 0.0001724186914148382|versicolor prob.: 0.9999143104530177|virginica prob.:0.9999144055368007
+Sample #60|setosa prob.: 0.00017241989215715|versicolor prob.: 0.9999143098093888|virginica prob.:0.9999144048927371
+Sample #61|setosa prob.: 0.00017241848921460625|versicolor prob.: 0.9999143105614022|virginica prob.:0.9999144056452585
+Sample #62|setosa prob.: 0.0001724186914148382|versicolor prob.: 0.9999143104530177|virginica prob.:0.9999144055368007
+Sample #63|setosa prob.: 0.00017241846317393646|versicolor prob.: 0.9999143105753606|virginica prob.:0.9999144056592264
+Sample #64|setosa prob.: 0.0001724186427652771|versicolor prob.: 0.9999143104790951|virginica prob.:0.9999144055628958
+Sample #65|setosa prob.: 0.00017241844737947694|versicolor prob.: 0.9999143105838268|virginica prob.:0.9999144056676984
+Sample #66|setosa prob.: 0.00017241848921460625|versicolor prob.: 0.9999143105614022|virginica prob.:0.9999144056452585
+Sample #67|setosa prob.: 0.00017241860293441255|versicolor prob.: 0.9999143105004454|virginica prob.:0.9999144055842606
+Sample #68|setosa prob.: 0.00017241850386753393|versicolor prob.: 0.9999143105535478|virginica prob.:0.9999144056373988
+Sample #69|setosa prob.: 0.00017241871964092728|versicolor prob.: 0.9999143104378877|virginica prob.:0.9999144055216607
+Sample #70|setosa prob.: 0.00017241844506254785|versicolor prob.: 0.9999143105850687|virginica prob.:0.9999144056689412
+Sample #71|setosa prob.: 0.00017241852176466498|versicolor prob.: 0.9999143105439544|virginica prob.:0.9999144056277989
+Sample #72|setosa prob.: 0.00017241845935396505|versicolor prob.: 0.9999143105774082|virginica prob.:0.9999144056612753
+Sample #73|setosa prob.: 0.0001724184772178058|versicolor prob.: 0.9999143105678329|virginica prob.:0.9999144056516935
+Sample #74|setosa prob.: 0.00017241847206138282|versicolor prob.: 0.9999143105705968|virginica prob.:0.9999144056544592
+Sample #75|setosa prob.: 0.00017241845276998405|versicolor prob.: 0.9999143105809374|virginica prob.:0.9999144056648069
+Sample #76|setosa prob.: 0.00017241844296610342|versicolor prob.: 0.9999143105861925|virginica prob.:0.9999144056700656
+Sample #77|setosa prob.: 0.00017241843397225614|versicolor prob.: 0.9999143105910134|virginica prob.:0.9999144056748899
+Sample #78|setosa prob.: 0.00017241847206138282|versicolor prob.: 0.9999143105705968|virginica prob.:0.9999144056544592
+Sample #79|setosa prob.: 0.0001724188234123442|versicolor prob.: 0.9999143103822635|virginica prob.:0.999914405465999
+Sample #80|setosa prob.: 0.0001724188234123442|versicolor prob.: 0.9999143103822635|virginica prob.:0.999914405465999
+Sample #81|setosa prob.: 0.00017241891205789552|versicolor prob.: 0.9999143103347472|virginica prob.:0.9999144054184504
+Sample #82|setosa prob.: 0.00017241860293441255|versicolor prob.: 0.9999143105004454|virginica prob.:0.9999144055842606
+Sample #83|setosa prob.: 0.00017241845276998405|versicolor prob.: 0.9999143105809374|virginica prob.:0.9999144056648069
+Sample #84|setosa prob.: 0.00017241850386753393|versicolor prob.: 0.9999143105535478|virginica prob.:0.9999144056373988
+Sample #85|setosa prob.: 0.00017241844994008001|versicolor prob.: 0.9999143105824544|virginica prob.:0.9999144056663248
+Sample #86|setosa prob.: 0.0001724184393527389|versicolor prob.: 0.9999143105881293|virginica prob.:0.9999144056720037
+Sample #87|setosa prob.: 0.0001724185123690434|versicolor prob.: 0.9999143105489907|virginica prob.:0.9999144056328387
+Sample #88|setosa prob.: 0.00017241854362427702|versicolor prob.: 0.9999143105322372|virginica prob.:0.9999144056160739
+Sample #89|setosa prob.: 0.0001724186658748268|versicolor prob.: 0.9999143104667078|virginica prob.:0.9999144055505
+Sample #90|setosa prob.: 0.00017241858581445307|versicolor prob.: 0.9999143105096222|virginica prob.:0.9999144055934434
+Sample #91|setosa prob.: 0.00017241846317393646|versicolor prob.: 0.9999143105753606|virginica prob.:0.9999144056592264
+Sample #92|setosa prob.: 0.00017241860293441255|versicolor prob.: 0.9999143105004454|virginica prob.:0.9999144055842606
+Sample #93|setosa prob.: 0.00017241975235002648|versicolor prob.: 0.9999143098843291|virginica prob.:0.9999144049677278
+Sample #94|setosa prob.: 0.00017241857032367671|versicolor prob.: 0.9999143105179256|virginica prob.:0.9999144056017525
+Sample #95|setosa prob.: 0.00017241853214843464|versicolor prob.: 0.9999143105383885|virginica prob.:0.9999144056222292
+Sample #96|setosa prob.: 0.00017241853214843464|versicolor prob.: 0.9999143105383885|virginica prob.:0.9999144056222292
+Sample #97|setosa prob.: 0.00017241848291653532|versicolor prob.: 0.999914310564778|virginica prob.:0.9999144056486367
+Sample #98|setosa prob.: 0.00017241962584756755|versicolor prob.: 0.9999143099521376|virginica prob.:0.9999144050355824
+Sample #99|setosa prob.: 0.00017241855630704603|versicolor prob.: 0.9999143105254389|virginica prob.:0.9999144056092709
+Sample #100|setosa prob.: 0.0001724184250309466|versicolor prob.: 0.9999143105958063|virginica prob.:0.9999144056796858
+Sample #101|setosa prob.: 0.00017241844994008001|versicolor prob.: 0.9999143105824544|virginica prob.:0.9999144056663248
+Sample #102|setosa prob.: 0.0001724184250309466|versicolor prob.: 0.9999143105958063|virginica prob.:0.9999144056796858
+Sample #103|setosa prob.: 0.00017241843198919973|versicolor prob.: 0.9999143105920764|virginica prob.:0.9999144056759535
+Sample #104|setosa prob.: 0.00017241842667397412|versicolor prob.: 0.9999143105949256|virginica prob.:0.9999144056788045
+Sample #105|setosa prob.: 0.0001724184236343635|versicolor prob.: 0.9999143105965549|virginica prob.:0.9999144056804349
+Sample #106|setosa prob.: 0.00017241860293441255|versicolor prob.: 0.9999143105004454|virginica prob.:0.9999144055842606
+Sample #107|setosa prob.: 0.00017241842466867493|versicolor prob.: 0.9999143105960003|virginica prob.:0.9999144056798801
+Sample #108|setosa prob.: 0.0001724184303656107|versicolor prob.: 0.9999143105929467|virginica prob.:0.9999144056768244
+Sample #109|setosa prob.: 0.0001724184235770813|versicolor prob.: 0.9999143105965855|virginica prob.:0.9999144056804655
+Sample #110|setosa prob.: 0.0001724184303656107|versicolor prob.: 0.9999143105929467|virginica prob.:0.9999144056768244
+Sample #111|setosa prob.: 0.000172418435122809|versicolor prob.: 0.9999143105903967|virginica prob.:0.9999144056742727
+Sample #112|setosa prob.: 0.0001724184270569597|versicolor prob.: 0.9999143105947202|virginica prob.:0.9999144056785991
+Sample #113|setosa prob.: 0.00017241845935396505|versicolor prob.: 0.9999143105774082|virginica prob.:0.9999144056612753
+Sample #114|setosa prob.: 0.00017241843779965506|versicolor prob.: 0.9999143105889619|virginica prob.:0.9999144056728367
+Sample #115|setosa prob.: 0.00017241842794800435|versicolor prob.: 0.9999143105942427|virginica prob.:0.9999144056781212
+Sample #116|setosa prob.: 0.0001724184303656107|versicolor prob.: 0.9999143105929467|virginica prob.:0.9999144056768244
+Sample #117|setosa prob.: 0.00017241842323278893|versicolor prob.: 0.99991431059677|virginica prob.:0.9999144056806503
+Sample #118|setosa prob.: 0.0001724184235252495|versicolor prob.: 0.9999143105966133|virginica prob.:0.9999144056804935
+Sample #119|setosa prob.: 0.00017241848291653532|versicolor prob.: 0.999914310564778|virginica prob.:0.9999144056486367
+Sample #120|setosa prob.: 0.0001724184250309466|versicolor prob.: 0.9999143105958063|virginica prob.:0.9999144056796858
+Sample #121|setosa prob.: 0.00017241845589751207|versicolor prob.: 0.9999143105792611|virginica prob.:0.9999144056631293
+Sample #122|setosa prob.: 0.0001724184236976707|versicolor prob.: 0.9999143105965209|virginica prob.:0.9999144056804009
+Sample #123|setosa prob.: 0.00017241844506254785|versicolor prob.: 0.9999143105850687|virginica prob.:0.9999144056689412
+Sample #124|setosa prob.: 0.00017241842573014905|versicolor prob.: 0.9999143105954316|virginica prob.:0.9999144056793107
+Sample #125|setosa prob.: 0.00017241842484076142|versicolor prob.: 0.9999143105959082|virginica prob.:0.9999144056797877
+Sample #126|setosa prob.: 0.00017241844737947694|versicolor prob.: 0.9999143105838268|virginica prob.:0.9999144056676984
+Sample #127|setosa prob.: 0.00017241844296610342|versicolor prob.: 0.9999143105861925|virginica prob.:0.9999144056700656
+Sample #128|setosa prob.: 0.00017241842966776543|versicolor prob.: 0.9999143105933207|virginica prob.:0.9999144056771987
+Sample #129|setosa prob.: 0.00017241842632743408|versicolor prob.: 0.9999143105951112|virginica prob.:0.9999144056789904
+Sample #130|setosa prob.: 0.00017241842484076142|versicolor prob.: 0.9999143105959082|virginica prob.:0.9999144056797877
+Sample #131|setosa prob.: 0.00017241842330289|versicolor prob.: 0.9999143105967325|virginica prob.:0.9999144056806127
+Sample #132|setosa prob.: 0.0001724184290363288|versicolor prob.: 0.9999143105936593|virginica prob.:0.9999144056775373
+Sample #133|setosa prob.: 0.00017241844506254785|versicolor prob.: 0.9999143105850687|virginica prob.:0.9999144056689412
+Sample #134|setosa prob.: 0.00017241844506254785|versicolor prob.: 0.9999143105850687|virginica prob.:0.9999144056689412
+Sample #135|setosa prob.: 0.00017241842376763608|versicolor prob.: 0.9999143105964834|virginica prob.:0.9999144056803634
+Sample #136|setosa prob.: 0.00017241842601387218|versicolor prob.: 0.9999143105952792|virginica prob.:0.9999144056791586
+Sample #137|setosa prob.: 0.0001724184303656107|versicolor prob.: 0.9999143105929467|virginica prob.:0.9999144056768244
+Sample #138|setosa prob.: 0.00017241844737947694|versicolor prob.: 0.9999143105838268|virginica prob.:0.9999144056676984
+Sample #139|setosa prob.: 0.00017241842667397412|versicolor prob.: 0.9999143105949256|virginica prob.:0.9999144056788045
+Sample #140|setosa prob.: 0.00017241842573014905|versicolor prob.: 0.9999143105954316|virginica prob.:0.9999144056793107
+Sample #141|setosa prob.: 0.0001724184270569597|versicolor prob.: 0.9999143105947202|virginica prob.:0.9999144056785991
+Sample #142|setosa prob.: 0.00017241844994008001|versicolor prob.: 0.9999143105824544|virginica prob.:0.9999144056663248
+Sample #143|setosa prob.: 0.00017241842484076142|versicolor prob.: 0.9999143105959082|virginica prob.:0.9999144056797877
+Sample #144|setosa prob.: 0.00017241842484076142|versicolor prob.: 0.9999143105959082|virginica prob.:0.9999144056797877
+Sample #145|setosa prob.: 0.00017241842794800435|versicolor prob.: 0.9999143105942427|virginica prob.:0.9999144056781212
+Sample #146|setosa prob.: 0.00017241844506254785|versicolor prob.: 0.9999143105850687|virginica prob.:0.9999144056689412
+Sample #147|setosa prob.: 0.00017241843113684923|versicolor prob.: 0.9999143105925332|virginica prob.:0.9999144056764105
+Sample #148|setosa prob.: 0.00017241842748022445|versicolor prob.: 0.9999143105944933|virginica prob.:0.999914405678372
+Sample #149|setosa prob.: 0.00017241844296610342|versicolor prob.: 0.9999143105861925|virginica prob.:0.9999144056700656</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="aaf29d4d-7f79-4cc7-a4a5-fedb4dca8991" testId="a17d96d6-14da-4cdf-438f-09cf1bf34161" testName="GaussianFilterCtorTest" computerName="madoX" startTime="2020-04-25T19:41:03.2845504+02:00" endTime="2020-04-25T19:41:03.2851271+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aaf29d4d-7f79-4cc7-a4a5-fedb4dca8991">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="e001ca53-8a95-4749-baa6-6a8631d42f94" testId="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539" testName="TestPyramidBuilding" computerName="madoX" startTime="2020-04-25T19:41:03.2854091+02:00" endTime="2020-04-25T19:41:03.2854548+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e001ca53-8a95-4749-baa6-6a8631d42f94">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="f1f741b9-1dd3-45de-a6e7-667134afffe8" testId="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d" testName="TestEdgeTest" computerName="madoX" startTime="2020-04-25T19:41:03.3412983+02:00" endTime="2020-04-25T19:41:03.3413437+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f1f741b9-1dd3-45de-a6e7-667134afffe8">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="19ce3c24-450d-43e3-8926-7b93f84146ae" testId="cbe2e6f9-6de2-9e73-a532-7b5783051631" testName="TestContrastTest" computerName="madoX" startTime="2020-04-25T19:41:03.3412337+02:00" endTime="2020-04-25T19:41:03.3412841+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="19ce3c24-450d-43e3-8926-7b93f84146ae">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0c09cfdd-c716-46bb-a653-5ba72286e9a1" testId="6141bb7b-a41a-f909-b336-d09d324b86c1" testName="TestAssignParameters" computerName="madoX" startTime="2020-04-25T19:41:03.3413556+02:00" endTime="2020-04-25T19:41:03.3413992+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c09cfdd-c716-46bb-a653-5ba72286e9a1">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6e2c8782-33bd-4ad4-b199-04e66f2d7087" testId="2143b7c7-6299-6b01-b162-6d724aa767f8" testName="TestFindKeypoints" computerName="madoX" startTime="2020-04-25T19:41:03.3411143+02:00" endTime="2020-04-25T19:41:03.3412111+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6e2c8782-33bd-4ad4-b199-04e66f2d7087">
+      <Output></Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0e662852-5d13-4de1-bbdf-b166c53ec0d7" testId="b44e3f1d-d699-2be2-1c29-48f364c32676" testName="SugenoTest" computerName="madoX" duration="00:00:00.0099963" startTime="2020-04-25T19:41:03.3414747+02:00" endTime="2020-04-25T19:41:03.3516678+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0e662852-5d13-4de1-bbdf-b166c53ec0d7">
+      <Output>
+        <StdOut>Living standards for Warszawa are 0.5
+Living standards for Kraków are NaN
+Living standards for Gdańsk are 0.3
+Living standards for Wrocław are 0.3
+Living standards for Katowice are 0.8
+Living standards for Poznań are 0.41111111111111104
+Living standards for Gliwice are 0.8</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="915e4db9-2525-4ed4-924c-1169b3b3a5c2" testId="d258b85f-14b6-24a6-eaf0-9cb58f11778d" testName="TestCalculate" computerName="madoX" duration="00:00:00.0033240" startTime="2020-04-25T19:41:03.1886390+02:00" endTime="2020-04-25T19:41:03.1921519+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="915e4db9-2525-4ed4-924c-1169b3b3a5c2" />
+    <UnitTestResult executionId="f4638a70-27ed-4efb-8eb4-3575e8d9f05b" testId="0d712b84-ad40-a7e7-163a-6d1905e2c215" testName="FinalizeResult" computerName="madoX" startTime="2020-04-25T19:41:03.3414110+02:00" endTime="2020-04-25T19:41:03.3414622+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f4638a70-27ed-4efb-8eb4-3575e8d9f05b">
+      <Output></Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Test" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="f506b79a-2f44-5be9-d26c-b2a5166b61ba">
+      <Execution id="b490e050-e12d-4094-8e79-c8b1b46b184f" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="Test" />
+    </UnitTest>
+    <UnitTest name="TestPyramidBuilding" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539">
+      <Execution id="e001ca53-8a95-4749-baa6-6a8631d42f94" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestPyramidBuilding" />
+    </UnitTest>
+    <UnitTest name="TestMassCalculate" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="77b6b6a1-28ac-45e8-9314-cbdf61ad6c72">
+      <Execution id="5bd176e3-3749-45c2-9ec8-e1598cfc2d08" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Neuron.NeuralTests" name="TestMassCalculate" />
+    </UnitTest>
+    <UnitTest name="TestAssignParameters" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="6141bb7b-a41a-f909-b336-d09d324b86c1">
+      <Execution id="0c09cfdd-c716-46bb-a653-5ba72286e9a1" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestAssignParameters" />
+    </UnitTest>
+    <UnitTest name="TestContrastTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="cbe2e6f9-6de2-9e73-a532-7b5783051631">
+      <Execution id="19ce3c24-450d-43e3-8926-7b93f84146ae" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestContrastTest" />
+    </UnitTest>
+    <UnitTest name="TestTrain" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="8d37b67b-c1cf-3819-ac1d-76bbe0d1bff9">
+      <Execution id="1d2b5f6e-5456-47c1-977d-115f989a59ee" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Neuron.NeuralTests" name="TestTrain" />
+    </UnitTest>
+    <UnitTest name="SugenoTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="b44e3f1d-d699-2be2-1c29-48f364c32676">
+      <Execution id="0e662852-5d13-4de1-bbdf-b166c53ec0d7" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SugenoTests" name="SugenoTest" />
+    </UnitTest>
+    <UnitTest name="TestEdgeTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d">
+      <Execution id="f1f741b9-1dd3-45de-a6e7-667134afffe8" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestEdgeTest" />
+    </UnitTest>
+    <UnitTest name="GaussianFilterCtorTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="a17d96d6-14da-4cdf-438f-09cf1bf34161">
+      <Execution id="aaf29d4d-7f79-4cc7-a4a5-fedb4dca8991" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.FilterTests" name="GaussianFilterCtorTest" />
+    </UnitTest>
+    <UnitTest name="TestFindKeypoints" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="2143b7c7-6299-6b01-b162-6d724aa767f8">
+      <Execution id="6e2c8782-33bd-4ad4-b199-04e66f2d7087" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestFindKeypoints" />
+    </UnitTest>
+    <UnitTest name="TestCalculate" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="d258b85f-14b6-24a6-eaf0-9cb58f11778d">
+      <Execution id="915e4db9-2525-4ed4-924c-1169b3b3a5c2" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Neuron.NeuralTests" name="TestCalculate" />
+    </UnitTest>
+    <UnitTest name="GaussianFilterTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="66aaeb20-50ad-9b68-0121-0ae2de24b645">
+      <Execution id="d4259f8a-fe34-48f1-8fa7-dc916f072db9" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.FilterTests" name="GaussianFilterTest" />
+    </UnitTest>
+    <UnitTest name="FinalizeResult" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="0d712b84-ad40-a7e7-163a-6d1905e2c215">
+      <Execution id="f4638a70-27ed-4efb-8eb4-3575e8d9f05b" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="FinalizeResult" />
+    </UnitTest>
+    <UnitTest name="TestDoGCreation" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="ae8b806e-91cd-158d-cf84-39ff4ea33259">
+      <Execution id="b42c8df6-7ed8-4912-8c16-56600f32c419" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Tests.SIFTTests" name="TestDoGCreation" />
+    </UnitTest>
+    <UnitTest name="ConstructorTest" storage="/home/mado/documents/assignments/ssi/ml.lib.tests/bin/debug/netcoreapp3.1/ml.lib.tests.dll" id="a5f2be9a-ecf7-4511-2438-b89033095905">
+      <Execution id="397f39a7-1082-4565-aa7a-6135f6816078" />
+      <TestMethod codeBase="/home/mado/Documents/assignments/ssi/ML.Lib.Tests/bin/Debug/netcoreapp3.1/ML.Lib.Tests.dll" adapterTypeName="executor://mstestadapter/v2" className="ML.Lib.Neuron.NeuralTests" name="ConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="f506b79a-2f44-5be9-d26c-b2a5166b61ba" executionId="b490e050-e12d-4094-8e79-c8b1b46b184f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="66aaeb20-50ad-9b68-0121-0ae2de24b645" executionId="d4259f8a-fe34-48f1-8fa7-dc916f072db9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a5f2be9a-ecf7-4511-2438-b89033095905" executionId="397f39a7-1082-4565-aa7a-6135f6816078" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae8b806e-91cd-158d-cf84-39ff4ea33259" executionId="b42c8df6-7ed8-4912-8c16-56600f32c419" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="77b6b6a1-28ac-45e8-9314-cbdf61ad6c72" executionId="5bd176e3-3749-45c2-9ec8-e1598cfc2d08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8d37b67b-c1cf-3819-ac1d-76bbe0d1bff9" executionId="1d2b5f6e-5456-47c1-977d-115f989a59ee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a17d96d6-14da-4cdf-438f-09cf1bf34161" executionId="aaf29d4d-7f79-4cc7-a4a5-fedb4dca8991" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3c619f47-cba9-8ea0-d4fa-a85ad4fd1539" executionId="e001ca53-8a95-4749-baa6-6a8631d42f94" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c7a81c0f-39d1-56f8-0c4a-6ff95aac162d" executionId="f1f741b9-1dd3-45de-a6e7-667134afffe8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbe2e6f9-6de2-9e73-a532-7b5783051631" executionId="19ce3c24-450d-43e3-8926-7b93f84146ae" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6141bb7b-a41a-f909-b336-d09d324b86c1" executionId="0c09cfdd-c716-46bb-a653-5ba72286e9a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2143b7c7-6299-6b01-b162-6d724aa767f8" executionId="6e2c8782-33bd-4ad4-b199-04e66f2d7087" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b44e3f1d-d699-2be2-1c29-48f364c32676" executionId="0e662852-5d13-4de1-bbdf-b166c53ec0d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d258b85f-14b6-24a6-eaf0-9cb58f11778d" executionId="915e4db9-2525-4ed4-924c-1169b3b3a5c2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0d712b84-ad40-a7e7-163a-6d1905e2c215" executionId="f4638a70-27ed-4efb-8eb4-3575e8d9f05b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="15" executed="5" passed="5" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Test 'GaussianFilterCtorTest' was skipped in the test run.
+Test 'GaussianFilterTest' was skipped in the test run.
+Test 'Test' was skipped in the test run.
+Test 'TestPyramidBuilding' was skipped in the test run.
+Test 'TestDoGCreation' was skipped in the test run.
+Test 'TestFindKeypoints' was skipped in the test run.
+Test 'TestContrastTest' was skipped in the test run.
+Test 'TestEdgeTest' was skipped in the test run.
+Test 'TestAssignParameters' was skipped in the test run.
+Test 'FinalizeResult' was skipped in the test run.
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
