@@ -11,8 +11,7 @@ namespace ML.Lib.Neuron
         List<IConnection> OutcomingConnections {get;set;}
 
         double CalculateOutput();
-
-
+        void PushToOutput(double d);
         
     }
 

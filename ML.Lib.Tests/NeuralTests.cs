@@ -14,28 +14,27 @@ namespace ML.Lib.Neuron
         {
             int[] layerSizes = new int[] { 4, 4, 2 };
             int inputCount = 10;
-            int outputCount = 4;
-            SimpleNetwork net = new SimpleNetwork(inputCount, layerSizes, outputCount);
+            SimpleNetwork net = new SimpleNetwork(inputCount, layerSizes);
 
 
             //Check if input connections were connected correctly
             //And check if first layer has correct amount of Outcoming connections
-            foreach (INeuron n in net.HiddenLayers[0].neurons)
+            foreach (INeuron n in net.HiddenLayers[0].Neurons)
             {
                 Assert.AreEqual(inputCount, n.IncomingConnections.Count);
                 Assert.AreEqual(layerSizes[1], n.OutcomingConnections.Count);
             }
 
             //Check amount of neurons in each hidden layer and in output layer
-            Assert.AreEqual(layerSizes[0], net.HiddenLayers[0].neurons.Count);
-            Assert.AreEqual(layerSizes[1], net.HiddenLayers[1].neurons.Count);
-            Assert.AreEqual(layerSizes[2], net.HiddenLayers[2].neurons.Count);
+            Assert.AreEqual(layerSizes[0], net.HiddenLayers[0].Neurons.Count);
+            Assert.AreEqual(layerSizes[1], net.HiddenLayers[1].Neurons.Count);
+            Assert.AreEqual(layerSizes[2], net.HiddenLayers[2].Neurons.Count);
 
 
             //Check amount of connections
             for (int i = 1; i < layerSizes.Length - 1; i++)
             {
-                foreach (INeuron n in net.HiddenLayers[i].neurons)
+                foreach (INeuron n in net.HiddenLayers[i].Neurons)
                 {
                     Assert.AreEqual(layerSizes[i - 1], n.IncomingConnections.Count);
                     Assert.AreEqual(layerSizes[i + 1], n.OutcomingConnections.Count);
@@ -44,11 +43,22 @@ namespace ML.Lib.Neuron
             }
 
             //Check connections to the last layer
-            foreach(INeuron n in net.HiddenLayers.Last().neurons)
+            foreach(INeuron n in net.HiddenLayers.Last().Neurons)
             {
                 Assert.AreEqual(layerSizes[layerSizes.Length - 2], n.IncomingConnections.Count);
-                Assert.AreEqual(outputCount, n.OutcomingConnections.Count);
             }
+        }
+
+        [TestMethod]
+        public void TestCalculate()
+        {
+            int[] layerSizes = new int[] { 4, 2 };
+            int inputCount = 2;
+            SimpleNetwork net = new SimpleNetwork(inputCount, layerSizes);
+
+            double[] output = net.Calculate(new double[]{1.0,2.0});
+            
+            
         }
 
     }

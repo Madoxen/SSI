@@ -6,10 +6,7 @@ namespace ML.Lib.Neuron
         private INeuron to;
         public double Weight { get; set; }
 
-        public double GetOutput()
-        {
-            return from.CalculateOutput();
-        }
+        public double Output {get;set;}
 
         public Connection() { }
         public Connection(INeuron from, INeuron to, double Weight)

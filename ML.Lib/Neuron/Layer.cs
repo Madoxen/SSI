@@ -6,7 +6,15 @@ namespace ML.Lib.Neuron
     //Holds list of neurons
     public class Layer
     {
-        public List<INeuron> neurons = new List<INeuron>();
+        public List<INeuron> Neurons{get;set;}
+
+        public Layer()
+        {
+            Neurons = new List<INeuron>();
+        }
+            
+
+
     }
 
 }
