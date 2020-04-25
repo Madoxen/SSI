@@ -53,12 +53,17 @@ namespace ML.Lib.Neuron
         [TestMethod]
         public void TestCalculate()
         {
-            int[] layerSizes = new int[] { 4, 2 };
-            int inputCount = 2;
+            int[] layerSizes = new int[] { 1, 1 };
+            int inputCount = 1;
             SimpleNetwork net = new SimpleNetwork(inputCount, layerSizes);
+            net.HiddenLayers[0].Neurons[0].IncomingConnections[0].Weight = 1;
+            net.HiddenLayers[0].Neurons[0].OutcomingConnections[0].Weight = 1;
 
-            double[] output = net.Calculate(new double[] { 1.0, 2.0 });
+            double[] output = net.Calculate(new double[] { 1.0 });
+            Assert.AreEqual(0.675, output[0], 0.01);
         }
+
+    
 
 
         [TestMethod]
@@ -78,9 +83,12 @@ namespace ML.Lib.Neuron
                 results[i - 1][2] = Convert.ToDouble(tokens[2]);
             }
 
+            int s =  0;
             foreach (double[] res in results)
             {
                 double[] output = net.Calculate(res);
+                    Console.WriteLine("Sample #" + s + "|setosa prob.: " + output[0] + "|versicolor prob.: " + output[1] + "|virginica prob.:" + output[2]);
+                s++;
             }
         }
 
@@ -88,7 +96,7 @@ namespace ML.Lib.Neuron
         [TestMethod]
         public void TestTrain()
         {
-            int[] layerSizes = new int[] { 4, 4, 3 };
+            int[] layerSizes = new int[] { 4, 4, 4, 3 };
             int inputCount = 4;
             SimpleNetwork net = new SimpleNetwork(inputCount, layerSizes);
             string[] lines = File.ReadAllLines("Resources/irisDataset.csv");
@@ -104,20 +112,21 @@ namespace ML.Lib.Neuron
                 results[i - 1][2] = Convert.ToDouble(tokens[2]);
                 results[i - 1][3] = Convert.ToDouble(tokens[3]);
 
-                expectedValues[i-1][0] = Convert.ToDouble(tokens[4]);
-                expectedValues[i-1][1] = Convert.ToDouble(tokens[5]);
-                expectedValues[i-1][2] = Convert.ToDouble(tokens[6]);
+                expectedValues[i - 1][0] = Convert.ToDouble(tokens[4]);
+                expectedValues[i - 1][1] = Convert.ToDouble(tokens[5]);
+                expectedValues[i - 1][2] = Convert.ToDouble(tokens[6]);
             }
+
 
             net.Train(results, expectedValues, 1000);
 
             int s = 0;
             foreach (double[] res in results)
             {
-                
+
                 double[] output = net.Calculate(res);
 
-                Console.WriteLine("Sample #"+s + "|setosa prob.: " +output[0] + "|versicolor prob.: " + output[1] + "|virginica prob.:" + output[2]);
+                Console.WriteLine("Sample #" + s + "|setosa prob.: " + output[0] + "|versicolor prob.: " + output[1] + "|virginica prob.:" + output[2]);
                 s++;
             }
         }

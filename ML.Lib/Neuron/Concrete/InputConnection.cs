@@ -8,14 +8,35 @@ namespace ML.Lib.Neuron
         public double Weight
         {
             get { return 1; }
+            set{}
         }
 
-        public double Output {get;set;}
+        public double PreviousWeight
+        {
+            get { return 1; }
+        }
+
+        public double Output { get; set; }
+
+
 
         public double GetOutput()
         {
             return Output;
         }
+
+        public void UpdateWeight(double newWeight)
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+
+        public INeuron To => throw new System.NotImplementedException();
+
+        public INeuron From => throw new System.NotImplementedException();
+
+
     }
 
 }

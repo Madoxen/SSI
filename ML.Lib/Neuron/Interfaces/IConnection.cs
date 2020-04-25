@@ -2,9 +2,15 @@ namespace ML.Lib.Neuron
 {
     public interface IConnection
     {
-        double Weight {get;}
+
+        INeuron To {get;}
+        INeuron From {get;}
+
+        double Weight {get;set;}
+        double PreviousWeight{get;}
         double Output {get;set;}
 
+        void UpdateWeight(double newWeight);
     }
 
 }
