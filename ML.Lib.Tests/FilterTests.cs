@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace ML.Lib.Tests
 {
+    [Ignore]
     [TestClass]
     public class FilterTests
     {

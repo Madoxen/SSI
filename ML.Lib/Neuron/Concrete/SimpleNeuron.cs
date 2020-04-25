@@ -12,6 +12,8 @@ namespace ML.Lib.Neuron
         public SimpleNeuron()
         {
             ActivationFunction = new SigmoidActivationFunction();
+            IncomingConnections = new List<IConnection>();
+            OutcomingConnections = new List<IConnection>();
         }
 
         public double CalculateOutput()

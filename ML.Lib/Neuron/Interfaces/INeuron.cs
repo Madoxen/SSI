@@ -12,6 +12,7 @@ namespace ML.Lib.Neuron
 
         double CalculateOutput();
 
+
         
     }
 
