@@ -5,31 +5,40 @@ namespace ML.Lib.Neuron
 {
     public class SimpleNetwork : INetwork
     {
-        //Contains all hidden layers and an output layer
-        public List<Layer> HiddenLayers { get; set; }
-        private InputConnection[] inputs { get; set; }
-
+        //Contains input layer all hidden layers and an output layer
+        public List<Layer> Layers { get; set; }
         public double LearningRate { get; set; }
 
+
+        public static System.Random rnd = new System.Random();
         //initialize network sizes.Length layers
         //each layer has int size assigned
-        public SimpleNetwork(int inputCount, IEnumerable<int> sizes)
+        public SimpleNetwork(IEnumerable<int> sizes)
         {
-            HiddenLayers = new List<Layer>();
-            inputs = new InputConnection[inputCount];
+            Layers = new List<Layer>();
             LearningRate = 0.05;
 
-            foreach (int size in sizes)
+            //Create input layer
+            Layer inputLayer = new Layer();
+            Layers.Add(inputLayer);
+            for (int i = 0; i < sizes.ToList()[0]; i++)
+            {
+                inputLayer.Neurons.Add(new InputNeuron());
+            }
+
+
+
+            foreach (int size in sizes.Skip(1))
             {
                 Layer l = new Layer();
-                HiddenLayers.Add(l);
+                Layers.Add(l);
                 //Create layer of "size" neurons
                 for (int i = 0; i < size; i++)
                 {
                     l.Neurons.Add(new SimpleNeuron());
                 }
             }
-            ReconnectNetwork(inputCount);
+            ReconnectNetwork();
         }
 
         public SimpleNetwork() { }
@@ -39,6 +48,46 @@ namespace ML.Lib.Neuron
 
         public void Train(double[][] input, double[][] expectedValues, int epochs)
         {
+            //Cost function: 1/2n SUM_i (expected_i - output_i)^2
+            //Cost for one training example C = 1/n SUM_i C_i
+            //C_i = 1/2 ||(expected - output)^2|| (|| <- norm operation sum all in vector)
+            //=============================================================================
+            //Error in output layer Er^L_j = nabla C / nabla A^L_j * activationFuncDerivative(z^L_J)
+            //Where z -> weighted input to the given layer's Lth jth Neuron
+            //a -> Activation (output) of Layer's Lth jth Neuron
+            //=================================================================
+            //Error in the next layers Er^L = weight_prev_layer * error_prev_layer * activationFuncDerivative(z^L)
+
+
+
+
+            //================================
+            //The Backpropagation Algorithm
+            //================================
+            /*
+            For each epoch
+                For each training example:
+                    1. Feedforward for given input from training example
+                    Save information about each weighted input to each neuron
+                    and about each activation for every neuron
+                    2. Calculate Output Layer Error 
+                    3. Backpropagate error,
+                    For each Layer from preLastOne to second one:
+                    Compute Error for every weight using error from previous layer
+                    4. Gradient(direction) is given by multiplying error of neuron and activation 
+                    from next layer that it's connected to 
+                    5. Gradient Descent using Gradients move weights in the right direction.
+            */
+
+
+
+            double[][] errors = new double[Layers.Count][];
+            for (int i = 0; i < Layers.Count; i++)
+            {
+                errors[i] = new double[Layers[i].Neurons.Count];
+            }
+
+
 
             for (int i = 0; i < epochs; i++)
             {
@@ -47,96 +96,69 @@ namespace ML.Lib.Neuron
                 {
                     //Calculate current net iteration
                     double[] currentOutputs = Calculate(input[j]);
-                    double globalCurrentCost = CalculateError(expectedValues[j], currentOutputs);
-                    HandleOutputLayer(expectedValues[j], currentOutputs);
-                    HandleMiddleLayers(expectedValues[j], currentOutputs);
-                }
-            }
 
 
-        }
-
-        public double CalculateError(double[] expectedValues, double[] actualValues)
-        {
-            if (expectedValues.Length != actualValues.Length)
-                throw new ArgumentException("expectedValues length: " + expectedValues.Length + "| actualValues: " + actualValues.Length);
-
-
-            double currentCost = 0;
-            for (int i = 0; i < expectedValues.Length; i++)
-            {
-                currentCost += Math.Pow(expectedValues[i] - actualValues[i], 2);
-            }
-            currentCost /= 2 * expectedValues.Length;
-            return currentCost;
-        }
-
-
-
-        //Updates weights coming to output layer (last layer)
-        private void HandleOutputLayer(double[] expectedValues, double[] currentOutputs)
-        {
-            //Alter each weight of each neuron in output layer
-            for (int i = 0; i < HiddenLayers.Last().Neurons.Count; i++)
-            {
-                INeuron currNeuron = HiddenLayers.Last().Neurons[i];
-                for (int j = 0; j < currNeuron.IncomingConnections.Count; j++)
-                {
-                    //calc nabla cost / nabla curr weight
-                    double incomingNeuronValue = HiddenLayers[HiddenLayers.Count - 2].Neurons.First(x => x.OutcomingConnections.Any(x => x.To == currNeuron)).LastOutputValue;
-                    double CostDerivative = (expectedValues[i] - currentOutputs[i]) * currentOutputs[i] * (1 - currentOutputs[i]) * incomingNeuronValue;
-                    currNeuron.PreviousPartialDerivate = (expectedValues[i] - currentOutputs[i]) * currentOutputs[i] * (1 - currentOutputs[i]);
-                    double newWeight = currNeuron.IncomingConnections[j].Weight - (LearningRate * CostDerivative);
-                    currNeuron.IncomingConnections[j].UpdateWeight(newWeight);
-                }
-
-            }
-        }
-
-
-        public void HandleMiddleLayers(double[] expectedValues, double[] currentOutputs)
-        {
-            //For each hidden layer
-            for (int i = HiddenLayers.Count - 2; i > 0; i--)
-            {
-                //For each neuron in ith layer
-                for (int j = 0; j < HiddenLayers[i].Neurons.Count; j++)
-                {
-                    INeuron currentNeuron = HiddenLayers[i].Neurons[j];
-                    //for each incoming connection
-                    for (int k = 0; k < currentNeuron.IncomingConnections.Count; k++)
+                    //Calculate errors for output layer
+                    for (int k = 0; k < Layers.Last().Neurons.Count; k++)
                     {
-                        IConnection conn = currentNeuron.IncomingConnections[k];
-                        //update each incoming connection
-                        //in relation to previous connections
-                        double sum = 0;
-                        //Go to previous(next) layer
-                        
-                        
-
-
+                        INeuron currentNeuron = Layers.Last().Neurons[k];
+                        double currentError = (currentOutputs[k] - expectedValues[j][k]) * currentNeuron.ActivationFunction.PerformDerivative(currentNeuron.LastInputValue);
+                        errors[Layers.Count - 1][k] = currentError;
                     }
+
+                    //Once we have output layer errors calculated, we can use them to calculate next layers errors
+                    for (int k = Layers.Count - 2; k > 0; k--)
+                    {
+                        for (int l = 0; l < Layers[k].Neurons.Count; l++)
+                        {
+                            errors[k][l] = 0;
+                            for (int m = 0; m < Layers[k + 1].Neurons.Count; m++)
+                            {
+                                errors[k][l] += errors[k + 1][m] * Layers[k + 1].Neurons[m].IncomingConnections[l].Weight;
+                            }
+                            errors[k][l] *= Layers[k].Neurons[l].ActivationFunction.PerformDerivative(Layers[k].Neurons[l].LastInputValue);
+                        }
+                    }
+
+                    //Now, when we have calculated all of errors for each neuron in our net
+                    //We can perform weight update, the order does not matter as we already calculated everything needed
+                    for (int k = Layers.Count - 1; k > 0; k--)
+                    {
+                        for (int l = 0; l < Layers[k].Neurons.Count; l++)
+                        {
+                            for (int m = 0; m < Layers[k - 1].Neurons.Count; m++)
+                            {
+                                double grad = errors[k][l] * Layers[k-1].Neurons[m].LastOutputValue * 2 * LearningRate;
+                                //Update weight
+                                Layers[k].Neurons[l].IncomingConnections[m].UpdateWeight(-grad);
+                            }
+                        }
+                    }
+
+   
                 }
             }
         }
-
 
 
 
 
         public double[] Calculate(double[] input)
         {
-            if (input.Length != inputs.Length)
-                throw new ArgumentException("Expected input of length: " + inputs.Length + "| got: " + input.Length);
+            if (input.Length != Layers[0].Neurons.Count)
+                throw new ArgumentException("Expected input of length: " + Layers[0].Neurons.Count + "| got: " + input.Length);
 
             //push values onto input connections
             for (int i = 0; i < input.Length; i++)
             {
-                inputs[i].Output = input[i];
+                if (!(Layers[0].Neurons[i] is InputNeuron inputNeuron))
+                    throw new Exception("Other neurons than InputNeurons were found in input layer");
+
+                inputNeuron.OutputtingValue = input[i];
             }
 
             //propagate values forward
-            foreach (Layer l in HiddenLayers)
+            foreach (Layer l in Layers)
             {
                 foreach (INeuron n in l.Neurons)
                 {
@@ -147,55 +169,54 @@ namespace ML.Lib.Neuron
                 }
             }
 
-            double[] result = new double[HiddenLayers.Last().Neurons.Count];
+            double[] result = new double[Layers.Last().Neurons.Count];
             //pack values from last layer 
-            for (int i = 0; i < HiddenLayers.Last().Neurons.Count; i++)
+            for (int i = 0; i < Layers.Last().Neurons.Count; i++)
             {
-                result[i] = HiddenLayers.Last().Neurons[i].CalculateOutput();
+                result[i] = Layers.Last().Neurons[i].CalculateOutput();
             }
             return result;
         }
 
 
         //Connects each layer with next one
-        private void ReconnectNetwork(int inputCount)
+        private void ReconnectNetwork()
         {
-            System.Random rnd = new System.Random();
-
-
-            //Create inputCount inputs
-            for (int i = 0; i < inputCount; i++)
+            for (int backLayer = 0; backLayer < Layers.Count - 1; backLayer++)
             {
-                InputConnection ic = new InputConnection();
-                inputs[i] = ic;
-            }
-
-
-
-            //Handle input layer
-            //Set InputConnections for each neuron in first hidden layer
-            foreach (INeuron n in HiddenLayers[0].Neurons)
-            {
-                for (int i = 0; i < inputCount; i++)
+                foreach (INeuron back in Layers[backLayer].Neurons)
                 {
-                    n.IncomingConnections.Add(inputs[i]);
-                }
-            }
-
-
-            //Handle hidden layers
-            for (int backLayer = 0; backLayer < HiddenLayers.Count - 1; backLayer++)
-            {
-                foreach (INeuron back in HiddenLayers[backLayer].Neurons)
-                {
-                    foreach (INeuron front in HiddenLayers[backLayer + 1].Neurons)
+                    foreach (INeuron front in Layers[backLayer + 1].Neurons)
                     {
-                        Connection c = new Connection(back, front, rnd.NextDouble());
+                        Connection c = new Connection(back, front, rnd.NextDouble() * (0.5 + 0.5) - 0.5);
                         back.OutcomingConnections.Add(c);
                         front.IncomingConnections.Add(c);
                     }
                 }
             }
+        }
+
+
+
+        public string Dump()
+        {
+            string result = "Weights:";
+            for (int i = 0; i < Layers.Count; i++)
+            {
+                result += "Layer#" + i + "\n";
+                for (int j = 0; j < Layers[i].Neurons.Count; j++)
+                {
+                    result += "Neuron#" + j;
+                    for (int k = 0; k < Layers[i].Neurons[j].OutcomingConnections.Count; k++)
+                    {
+                        result += "|" + Layers[i].Neurons[j].OutcomingConnections[k].Weight + "|";
+                    }
+                    result += "\n";
+                }
+
+            }
+
+            return result;
         }
     }
 

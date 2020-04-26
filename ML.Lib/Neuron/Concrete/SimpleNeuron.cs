@@ -40,8 +40,7 @@ namespace ML.Lib.Neuron
             }
         }
 
-
-
+ 
     }
 
 }

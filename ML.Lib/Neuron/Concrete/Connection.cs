@@ -20,10 +20,10 @@ namespace ML.Lib.Neuron
             this.Weight = Weight;
         }
 
-        public void UpdateWeight(double newWeight)
+        public void UpdateWeight(double delta)
         {
             PreviousWeight = Weight;
-            Weight = newWeight;
+            Weight += delta;
         }
     }
 }

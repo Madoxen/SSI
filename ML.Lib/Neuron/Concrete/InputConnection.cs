@@ -19,7 +19,6 @@ namespace ML.Lib.Neuron
         public double Output { get; set; }
 
 
-
         public double GetOutput()
         {
             return Output;

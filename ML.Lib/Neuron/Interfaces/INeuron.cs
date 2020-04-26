@@ -10,6 +10,9 @@ namespace ML.Lib.Neuron
         List<IConnection> IncomingConnections { get; set; }
         List<IConnection> OutcomingConnections { get; set; }
 
+        IActivationFunction ActivationFunction {get;set;}
+
+
         double PreviousPartialDerivate { get; set; }
 
         double LastOutputValue {get;set;}

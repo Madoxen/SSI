@@ -10,7 +10,7 @@ namespace ML.Lib.Neuron
         double PreviousWeight{get;}
         double Output {get;set;}
 
-        void UpdateWeight(double newWeight);
+        void UpdateWeight(double delta);
     }
 
 }
