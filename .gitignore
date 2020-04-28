@@ -6,3 +6,4 @@
 .vs
 
 #Ignore ML.Lib Test results
+*/TestResults/*

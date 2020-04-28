@@ -2,10 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ML.Lib\ML.Lib.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <None Update="Resources\**" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <PropertyGroup>
