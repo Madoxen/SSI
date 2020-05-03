@@ -1,0 +1,17 @@
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/obj/Debug/netcoreapp3.1/neural.csprojAssemblyReference.cache
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/obj/Debug/netcoreapp3.1/neural.csproj.CoreCompileInputs.cache
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/obj/Debug/netcoreapp3.1/neural.AssemblyInfoInputs.cache
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/obj/Debug/netcoreapp3.1/neural.AssemblyInfo.cs
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/bin/Debug/netcoreapp3.1/data.csv
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/bin/Debug/netcoreapp3.1/neural
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/bin/Debug/netcoreapp3.1/neural.deps.json
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/bin/Debug/netcoreapp3.1/neural.runtimeconfig.json
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/bin/Debug/netcoreapp3.1/neural.runtimeconfig.dev.json
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/bin/Debug/netcoreapp3.1/neural.dll
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/bin/Debug/netcoreapp3.1/neural.pdb
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/bin/Debug/netcoreapp3.1/NeuralNetwork.dll
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/bin/Debug/netcoreapp3.1/NeuralNetwork.pdb
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/obj/Debug/netcoreapp3.1/neural.csproj.CopyComplete
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/obj/Debug/netcoreapp3.1/neural.dll
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/obj/Debug/netcoreapp3.1/neural.pdb
+/home/mado/Documents/assignments/ssi/kolos_pchlad/neural/obj/Debug/netcoreapp3.1/neural.genruntimeconfig.cache

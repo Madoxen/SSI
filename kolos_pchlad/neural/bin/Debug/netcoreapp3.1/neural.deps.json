@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "neural/1.0.0": {
+        "dependencies": {
+          "NeuralNetwork": "1.0.0"
+        },
+        "runtime": {
+          "neural.dll": {}
+        }
+      },
+      "NeuralNetwork/1.0.0": {
+        "runtime": {
+          "NeuralNetwork.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "neural/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NeuralNetwork/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

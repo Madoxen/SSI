@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "zlZa1HRB8rFppGniHxI1DOi0XEPGTxwCRyfJowMtTTTKQjO0d8ccNAVmdrXAVIZaWBkpGYUn4mzWFCzIIc0FAw==",
+  "success": true,
+  "projectFilePath": "/home/mado/Documents/assignments/ssi/kolos_pchlad/NeuralNetwork/NeuralNetwork.csproj",
+  "expectedPackageFiles": [
+    "/home/mado/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/home/mado/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
